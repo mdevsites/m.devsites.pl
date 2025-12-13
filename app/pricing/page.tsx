@@ -191,7 +191,7 @@ export default function PricingPage() {
                                 {/* Button */}
                                 <div className="w-full mt-auto">
                                     <Link
-                                        href="/contact"
+                                        href={`/contact?package=${pkg.id}`}
                                         className={`
                                             block w-full py-4 rounded-xl font-semibold text-center transition-all duration-300 transform hover:scale-[1.02]
                                             ${pkg.popular
