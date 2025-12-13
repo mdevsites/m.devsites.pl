@@ -46,7 +46,7 @@ export default function Testimonials() {
                         Co mówią moi klienci?
                     </h2>
                     <p className="text-xl text-purple-100 max-w-4xl leading-relaxed text-center">
-                        Zadowoleni klienci to mój największy sukces
+                        Zadowoleni klienci to mój największy sukces.
                     </p>
                 </motion.div>
 

@@ -39,7 +39,7 @@ export default function USPSection() {
                         Dlaczego warto ze mną współpracować?
                     </h2>
                     <p className="text-xl text-purple-100 max-w-4xl mx-auto leading-relaxed text-center">
-                        Połączenie nowoczesnych technologii, doświadczenia i pasji do tworzenia
+                        Połączenie nowoczesnych technologii, doświadczenia i pasji do tworzenia.
                     </p>
                 </motion.div>
 

@@ -76,7 +76,7 @@ export default function Hero() {
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.8, delay: 0.4 }}
                         >
-                            Profesjonalne rozwiązania webowe dla biznesu, które wyróżnią Cię na rynku
+                            Profesjonalne rozwiązania webowe dla biznesu, które wyróżnią Cię na rynku.
                         </motion.p>
 
                         <motion.div

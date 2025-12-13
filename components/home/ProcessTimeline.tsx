@@ -18,7 +18,7 @@ export default function ProcessTimeline() {
                         Jak wygląda proces współpracy?
                     </h2>
                     <p className="text-xl text-purple-100 max-w-4xl mx-auto leading-relaxed text-center">
-                        Prosty i przejrzysty proces od pomysłu do gotowej strony
+                        Prosty i przejrzysty proces od pomysłu do gotowej strony.
                     </p>
                 </motion.div>
 

@@ -18,7 +18,7 @@ const PRICING_PACKAGES = [
         id: 'start',
         name: 'PAKIET START',
         price: '1 199',
-        description: 'Idealny na start działalności',
+        description: 'Idealny, jeśli potrzebujesz estetycznej strony wizytówki, która dobrze wygląda i działa na każdym urządzeniu.',
         features: [
             'Projekt od zera',
             '1 strona (scroll)',
@@ -39,7 +39,7 @@ const PRICING_PACKAGES = [
         id: 'business',
         name: 'PAKIET BIZNES',
         price: '2 299',
-        description: 'To sprzedasz najczęściej',
+        description: 'Dla firm, które chcą profesjonalnej strony firmowej, budującej zaufanie i wspierającej sprzedaż.',
         features: [
             'Do 4 podstron',
             'Indywidualny layout',
@@ -56,7 +56,7 @@ const PRICING_PACKAGES = [
         id: 'pro',
         name: 'PAKIET PRO',
         price: '3 999',
-        description: 'Dla klientów, którzy „chcą efekt”',
+        description: 'Dla marek, które chcą wyróżnić się wizerunkowo i wyglądać jak duża firma.',
         features: [
             'Do 6 podstron',
             'Dopracowany UX',
@@ -124,7 +124,7 @@ export default function PricingPage() {
                                 relative group rounded-3xl p-1
                                 bg-gradient-to-b from-white/10 to-transparent
                                 hover:from-white/20 transition-all duration-300
-                                flex flex-col h-full max-w-[450px] mx-auto w-full min-h-[650px]
+                                flex flex-col h-full max-w-[450px] mx-auto w-full min-h-[600px] md:min-h-[650px]
                             `}
                         >
                             {/* Card Inner */}
@@ -149,7 +149,7 @@ export default function PricingPage() {
 
                                     <h3 className="text-2xl font-bold mb-4 text-center w-full bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-400">{pkg.name}</h3>
                                     {/* Description: Full width, no extra padding */}
-                                    <p className="text-gray-400 text-sm leading-relaxed text-center w-full">{pkg.description}</p>
+                                    <p className="text-gray-400 text-sm leading-relaxed text-center max-w-[85%] mx-auto">{pkg.description}</p>
                                 </div>
 
                                 {/* Rigid Spacer */}
