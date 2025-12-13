@@ -56,7 +56,7 @@ export default function Hero() {
                         initial={{ opacity: 0, x: -30 }}
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.8 }}
-                        className="text-left"
+                        className="text-center lg:text-left flex flex-col items-center lg:items-start"
                     >
                         <motion.h1
                             className="text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-[0.8] tracking-tighter !mb-16"
@@ -80,7 +80,7 @@ export default function Hero() {
                         </motion.p>
 
                         <motion.div
-                            className="flex flex-col sm:flex-row gap-6"
+                            className="flex flex-col sm:flex-row gap-6 w-full justify-center lg:justify-start"
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.8, delay: 0.6 }}
