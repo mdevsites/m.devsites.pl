@@ -1,0 +1,48 @@
+import type { Metadata } from "next";
+import { Inter, Outfit } from "next/font/google";
+import "./globals.css";
+import Navbar from "@/components/layout/Navbar";
+import Footer from "@/components/layout/Footer";
+import StickyButtons from "@/components/layout/StickyButtons";
+
+const inter = Inter({
+  variable: "--font-inter",
+  subsets: ["latin"],
+});
+
+const outfit = Outfit({
+  variable: "--font-outfit",
+  subsets: ["latin"],
+});
+
+export const metadata: Metadata = {
+  title: "M.DEV - Tworzenie Stron Internetowych | Profesjonalne Strony WWW",
+  description: "Tworzę nowoczesne strony internetowe dla firm. Responsywny design, szybka realizacja, konkurencyjne ceny. Skontaktuj się dla bezpłatnej wyceny!",
+  keywords: "tworzenie stron internetowych, strony www, web development, Next.js, React, strony firmowe",
+  authors: [{ name: "M.DEV" }],
+  openGraph: {
+    title: "M.DEV - Profesjonalne Tworzenie Stron Internetowych",
+    description: "Nowoczesne strony internetowe, które sprzedają. Responsywny design i najnowsze technologie.",
+    type: "website",
+  },
+};
+
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
+  return (
+    <html lang="pl" className="scroll-smooth">
+      <body
+        className={`${inter.variable} ${outfit.variable} antialiased`}
+      >
+        <Navbar />
+        <main>{children}</main>
+        <Footer />
+
+        <StickyButtons />
+      </body>
+    </html>
+  );
+}
