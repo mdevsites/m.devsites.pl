@@ -9,7 +9,7 @@ export default function Hero() {
     return (
         <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
             {/* Animated Background Elements */}
-            <div className="absolute inset-0 overflow-hidden">
+            <div className="absolute inset-0 overflow-hidden hidden md:block">
                 <motion.div
                     className="absolute top-20 left-10 w-72 h-72 bg-purple-light/20 rounded-full blur-3xl"
                     animate={{
