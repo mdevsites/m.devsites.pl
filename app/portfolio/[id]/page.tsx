@@ -43,9 +43,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ id: st
                             </span>
                         ))}
                     </div>
-                    <h1 className="text-4xl md:text-6xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-400">
-                        {project.title}
-                    </h1>
+
                     <p className="text-xl text-gray-300 leading-relaxed max-w-3xl">
                         {project.shortDescription}
                     </p>

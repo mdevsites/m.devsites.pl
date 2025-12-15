@@ -74,18 +74,13 @@ export default function ProjectModal({
                         {/* Close Button */}
                         <button
                             onClick={onClose}
-                            className="absolute top-4 right-4 z-10 p-3 rounded-full bg-white/10 hover:bg-white/20 backdrop-blur-md transition-colors group"
+                            className="absolute top-4 right-4 z-50 p-3 rounded-full bg-black/50 md:bg-white/10 hover:bg-white/20 border border-white/10 backdrop-blur-md transition-colors group"
                             aria-label="Zamknij modal"
                         >
                             <X className="w-6 h-6 text-white group-hover:rotate-90 transition-transform duration-300" />
                         </button>
 
-                        {/* Project Title */}
-                        <div className="absolute top-4 left-4 z-10 px-4 py-2 rounded-full bg-black/50 backdrop-blur-md border border-white/10">
-                            <h2 className="text-white font-semibold text-sm">
-                                {projectTitle}
-                            </h2>
-                        </div>
+
 
                         {/* Iframe Container */}
                         <div className="w-full h-full pt-16">

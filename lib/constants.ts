@@ -309,4 +309,25 @@ export const PORTFOLIO_PROJECTS = [
       'Zgodność ze specyfikacją pakietu START'
     ]
   },
+  {
+    id: 'portfolio-fotografa',
+    title: 'Anna Kowalska Photography - Pakiet START',
+    shortDescription:
+      'Minimalistyczne portfolio dla fotografa. Skupienie na zdjęciach, masonry grid galeria i elegancka typografia.',
+    fullDescription:
+      'Projekt portfolio dla fotografa stworzony w ramach pakietu START. Cechuje się minimalistycznym designem, który nie odciąga uwagi od zdjęć. Wykorzystuje klasyczną typografię Playfair Display oraz nowoczesny układ masonry dla galerii.',
+    tags: ['Next.js', 'Tailwind CSS', 'Masonry Grid', 'Minimalism'],
+    imageSrc: 'https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?q=80&w=800&auto=format&fit=crop',
+    link: '/demos/fotograf',
+    client: 'Demo Project',
+    timeline: '3 dni',
+    role: 'Frontend Developer',
+    challenge: 'Stworzenie eleganckiego portfolio bez użycia skomplikowanych bibliotek do galerii (wymóg pakietu START).',
+    solution: 'Zastosowanie CSS Grid i Flexbox do stworzenia responsywnego układu masonry oraz wykorzystanie natywnych filtrów CSS dla efektów hover.',
+    results: [
+      'Elegancka prezentacja zdjęć',
+      'Szybki czas ładowania dzięki brakowi ciężkich bibliotek',
+      'W pełni responsywny layout'
+    ]
+  },
 ];

@@ -29,12 +29,17 @@ export default function ProjectCard({
             viewport={{ once: true }}
             className={`
                 relative group rounded-[32px] overflow-hidden
-                h-[500px] w-full ${className}
-                border border-white/5
+                w-full ${className}
+                flex flex-col md:block md:h-[500px]
+                border border-white/5 bg-[#0A0A0A] md:bg-transparent
             `}
         >
-            {/* Full Background Image */}
-            <div className="absolute inset-0 transition-transform duration-700 group-hover:scale-105">
+            {/* Image Container */}
+            <div className={`
+                relative w-full shrink-0
+                h-[250px] md:absolute md:inset-0 md:h-full
+                transition-transform duration-700 md:group-hover:scale-105
+            `}>
                 <Image
                     src={imageSrc}
                     alt={title}
@@ -43,11 +48,22 @@ export default function ProjectCard({
                 />
             </div>
 
-            {/* Gradient Overlay - Only visible on hover */}
-            <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-80" />
+            {/* Gradient Overlay - Desktop Only */}
+            <div className="hidden md:block absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-80" />
 
-            {/* Content Overlay - Only visible on hover */}
-            <div className="absolute bottom-0 left-0 right-0 p-8 flex flex-col justify-end items-center text-center h-full z-10 opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-4 group-hover:translate-y-0">
+            {/* Content Container */}
+            <div className={`
+                relative flex flex-col justify-end
+                p-4 sm:p-6 md:p-8
+                text-center
+                h-auto md:h-full md:absolute md:inset-0
+                z-10 bg-[#0A0A0A] md:bg-transparent
+                border-t border-white/5 md:border-t-0
+                
+                md:opacity-0 md:group-hover:opacity-100 
+                md:transition-all md:duration-500 
+                md:translate-y-4 md:group-hover:translate-y-0
+            `}>
 
                 <div className="flex flex-wrap gap-2 mb-3 justify-center">
                     {tags.map((tag, index) => (
@@ -60,17 +76,17 @@ export default function ProjectCard({
                     ))}
                 </div>
 
-                <h3 className="text-3xl font-bold text-white mb-2 drop-shadow-lg">
+                <h3 className="text-2xl md:text-3xl font-bold text-white mb-2 md:drop-shadow-lg leading-tight">
                     {title}
                 </h3>
 
-                <div className="overflow-hidden w-full">
-                    <p className="text-gray-200 text-sm leading-relaxed mb-6 line-clamp-3 opacity-90">
+                <div className="overflow-hidden w-full flex flex-col items-center">
+                    <p className="text-gray-400 md:text-gray-200 text-sm leading-relaxed mb-6 opacity-90 w-full max-w-[95%] mx-auto">
                         {description}
                     </p>
                     <button
                         onClick={onDetailsClick}
-                        className="inline-flex items-center text-white font-medium hover:text-purple-300 transition-colors bg-transparent border-none cursor-pointer"
+                        className="inline-flex items-center text-white font-medium hover:text-purple-300 transition-colors bg-transparent border-none cursor-pointer p-0"
                     >
                         Zobacz szczegóły
                         <svg

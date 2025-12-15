@@ -24,7 +24,7 @@ export default function MechanikPage() {
     return (
         <div className="min-h-screen bg-white">
             {/* HERO SECTION - Banner style (70vh) */}
-            <section className="relative h-[60vh] md:h-[70vh] flex items-center justify-center">
+            <section className="relative min-h-[50vh] md:min-h-[70vh] flex items-center justify-center py-12 md:py-0">
                 {/* Background Image */}
                 <div className="absolute inset-0 z-0">
                     <Image
@@ -94,10 +94,10 @@ export default function MechanikPage() {
 
                 {/* Content */}
                 <div className="relative z-10 text-center text-white px-6 max-w-4xl mx-auto">
-                    <h2 className="text-[32px] md:text-[48px] font-bold mb-6">
+                    <h2 className="text-lg md:text-[48px] font-bold mb-4 md:mb-6 leading-tight">
                         Profesjonalny Serwis Samochodowy
                     </h2>
-                    <p className="text-lg md:text-xl text-gray-200" style={{ marginBottom: '48px' }}>
+                    <p className="text-base md:text-xl text-gray-200 mb-6 md:mb-12">
                         Doświadczenie, jakość i rzetelność od 1995 roku
                     </p>
                     {/* Button with exact blue color #1E40AF */}
@@ -107,8 +107,8 @@ export default function MechanikPage() {
                             backgroundColor: '#1E40AF',
                             paddingLeft: '40px',
                             paddingRight: '40px',
-                            paddingTop: '20px',
-                            paddingBottom: '20px',
+                            paddingTop: '16px',
+                            paddingBottom: '16px',
                             fontSize: '20px'
                         }}
                         className="inline-block hover:opacity-90 text-white font-semibold rounded-lg transition-opacity duration-200"
@@ -117,7 +117,7 @@ export default function MechanikPage() {
                     </a>
 
                     {/* Trust Badges with orange #F59E0B */}
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-sm" style={{ marginTop: '48px' }}>
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-sm" style={{ marginTop: '32px' }}>
                         <div className="flex flex-col items-center">
                             <CheckCircle2
                                 className="w-8 h-8 mb-2"
@@ -150,7 +150,7 @@ export default function MechanikPage() {
                     <div>
                         {/* H2: 36px */}
                         <h2
-                            className="text-[36px] font-bold text-center"
+                            className="text-2xl md:text-[36px] font-bold text-center"
                             style={{ color: '#111827', marginBottom: '48px' }}
                         >
                             Nasze Usługi
@@ -311,7 +311,7 @@ export default function MechanikPage() {
                             {/* Text Content - 50% */}
                             <div>
                                 <h2
-                                    className="text-[36px] font-bold"
+                                    className="text-2xl md:text-[36px] font-bold"
                                     style={{ color: '#111827', marginBottom: '40px' }}
                                 >
                                     Twój zaufany partner w dbałości o auto
@@ -476,7 +476,7 @@ export default function MechanikPage() {
                         {/* Contact Form - 60% (3 of 5 columns) */}
                         <div className="lg:col-span-3">
                             <h2
-                                className="text-[36px] font-bold mb-8"
+                                className="text-2xl md:text-[36px] font-bold mb-8"
                                 style={{ color: '#111827' }}
                             >
                                 Skontaktuj się z nami

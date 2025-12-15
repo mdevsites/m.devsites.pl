@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
+import { usePathname, useSearchParams } from 'next/navigation';
 import { useState, useEffect } from 'react';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
 import { NAV_LINKS } from '@/lib/constants';
@@ -10,8 +10,10 @@ import { HamburgerIcon } from '../ui/HamburgerIcon';
 
 export default function Navbar() {
     const pathname = usePathname();
+    const searchParams = useSearchParams();
     const [isScrolled, setIsScrolled] = useState(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+    const hideNav = searchParams.get('hideNav') === 'true';
 
     useEffect(() => {
         const handleScroll = () => {
@@ -21,6 +23,8 @@ export default function Navbar() {
         window.addEventListener('scroll', handleScroll);
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
+
+    if (hideNav) return null;
 
     return (
         <nav
