@@ -1,9 +1,15 @@
 "use client";
 
+import { useState } from "react";
 import ProjectCard from "@/components/portfolio/ProjectCard";
+import ProjectModal from "@/components/portfolio/ProjectModal";
 import { PORTFOLIO_PROJECTS } from "@/lib/constants";
 
 export default function PortfolioPage() {
+    const [selectedProject, setSelectedProject] = useState<{
+        title: string;
+        link: string;
+    } | null>(null);
     return (
         <div className="min-h-screen bg-[#050505] text-white selection:bg-purple-500/30 font-sans">
             {/* Background Gradients */}
@@ -45,7 +51,11 @@ export default function PortfolioPage() {
                                 description={project.shortDescription}
                                 tags={project.tags}
                                 imageSrc={project.imageSrc}
-                                link={`/portfolio/${project.id}`}
+                                link={project.link}
+                                onDetailsClick={() => setSelectedProject({
+                                    title: project.title,
+                                    link: project.link,
+                                })}
                             />
                         </div>
                     ))}
@@ -54,6 +64,14 @@ export default function PortfolioPage() {
                 {/* Rigid Spacer for Footer */}
                 <div style={{ height: '100px' }} className="w-full shrink-0" />
             </div>
+
+            {/* Project Modal */}
+            <ProjectModal
+                isOpen={selectedProject !== null}
+                onClose={() => setSelectedProject(null)}
+                demoUrl={selectedProject?.link || ""}
+                projectTitle={selectedProject?.title || ""}
+            />
         </div>
     );
 }

@@ -1,10 +1,13 @@
-import type { Metadata } from "next";
+"use client";
+
 import { Inter, Outfit } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import StickyButtons from "@/components/layout/StickyButtons";
 import Script from "next/script";
+import { useSearchParams } from "next/navigation";
+import { Suspense } from "react";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -16,17 +19,36 @@ const outfit = Outfit({
   subsets: ["latin"],
 });
 
-export const metadata: Metadata = {
-  title: "M.DEV - Tworzenie Stron Internetowych | Profesjonalne Strony WWW",
-  description: "Tworzę nowoczesne strony internetowe dla firm. Responsywny design, szybka realizacja, konkurencyjne ceny. Skontaktuj się dla bezpłatnej wyceny!",
-  keywords: "tworzenie stron internetowych, strony www, web development, Next.js, React, strony firmowe",
-  authors: [{ name: "M.DEV" }],
-  openGraph: {
-    title: "M.DEV - Profesjonalne Tworzenie Stron Internetowych",
-    description: "Nowoczesne strony internetowe, które sprzedają. Responsywny design i najnowsze technologie.",
-    type: "website",
-  },
-};
+function LayoutContent({ children }: { children: React.ReactNode }) {
+  const searchParams = useSearchParams();
+  const hideNav = searchParams.get("hideNav") === "true";
+
+  return (
+    <>
+      {!hideNav && <Navbar />}
+      <main>{children}</main>
+      {!hideNav && <Footer />}
+      {!hideNav && <StickyButtons />}
+
+      {process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID && (
+        <>
+          <Script
+            src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID}`}
+            strategy="afterInteractive"
+          />
+          <Script id="google-analytics" strategy="afterInteractive">
+            {`
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', '${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID}');
+            `}
+          </Script>
+        </>
+      )}
+    </>
+  );
+}
 
 export default function RootLayout({
   children,
@@ -35,31 +57,17 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pl" className="scroll-smooth">
+      <head>
+        <title>M.DEV - Tworzenie Stron Internetowych | Profesjonalne Strony WWW</title>
+        <meta name="description" content="Tworzę nowoczesne strony internetowe dla firm. Responsywny design, szybka realizacja, konkurencyjne ceny. Skontaktuj się dla bezpłatnej wyceny!" />
+        <meta name="keywords" content="tworzenie stron internetowych, strony www, web development, Next.js, React, strony firmowe" />
+      </head>
       <body
         className={`${inter.variable} ${outfit.variable} antialiased`}
       >
-        <Navbar />
-        <main>{children}</main>
-        <Footer />
-
-        <StickyButtons />
-
-        {process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID && (
-          <>
-            <Script
-              src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID}`}
-              strategy="afterInteractive"
-            />
-            <Script id="google-analytics" strategy="afterInteractive">
-              {`
-                window.dataLayer = window.dataLayer || [];
-                function gtag(){dataLayer.push(arguments);}
-                gtag('js', new Date());
-                gtag('config', '${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID}');
-              `}
-            </Script>
-          </>
-        )}
+        <Suspense fallback={null}>
+          <LayoutContent>{children}</LayoutContent>
+        </Suspense>
       </body>
     </html>
   );

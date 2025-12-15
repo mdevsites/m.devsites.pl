@@ -1,0 +1,16 @@
+<svg width="240" height="80" viewBox="0 0 240 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Icon: Wrench and Car abstract combination -->
+  <path d="M45 20C45 14.4772 40.5228 10 35 10C29.4772 10 25 14.4772 25 20C25 22.8465 26.1916 25.4194 28.0963 27.2407L25 45H35L33.5 35H36.5L35 45H45L41.9037 27.2407C43.8084 25.4194 45 22.8465 45 20Z" fill="white"/>
+  <path d="M15 35H10V45H20V35H15V35Z" fill="white"/>
+  <path d="M60 35H50V45H60V35Z" fill="white"/>
+  
+  <!-- Modernized Icon: Half Gear / Half Wheel -->
+  <path fill-rule="evenodd" clip-rule="evenodd" d="M35 15C32.2386 15 30 17.2386 30 20C30 22.7614 32.2386 25 35 25C37.7614 25 40 22.7614 40 20C40 17.2386 37.7614 15 35 15ZM25 20C25 14.4772 29.4772 10 35 10C40.5228 10 45 14.4772 45 20C45 25.5228 40.5228 30 35 30C29.4772 30 25 25.5228 25 20Z" fill="white"/>
+  
+  <!-- Text: WARSZTAT AUTO -->
+  <text x="70" y="32" fill="white" font-family="Arial, sans-serif" font-weight="bold" font-size="24" letter-spacing="1">WARSZTAT</text>
+  <text x="70" y="56" fill="white" font-family="Arial, sans-serif" font-weight="bold" font-size="24" letter-spacing="1">AUTO</text>
+  
+  <!-- Accent Line -->
+  <rect x="70" y="38" width="130" height="2" fill="#3B82F6"/>
+</svg>

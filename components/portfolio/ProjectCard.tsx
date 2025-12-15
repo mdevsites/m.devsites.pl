@@ -10,6 +10,7 @@ interface ProjectCardProps {
     imageSrc: string;
     link: string;
     className?: string;
+    onDetailsClick?: () => void;
 }
 
 export default function ProjectCard({
@@ -19,6 +20,7 @@ export default function ProjectCard({
     imageSrc,
     link,
     className = "",
+    onDetailsClick,
 }: ProjectCardProps) {
     return (
         <motion.div
@@ -66,9 +68,9 @@ export default function ProjectCard({
                     <p className="text-gray-200 text-sm leading-relaxed mb-6 line-clamp-3 opacity-90">
                         {description}
                     </p>
-                    <a
-                        href={link}
-                        className="inline-flex items-center text-white font-medium hover:text-purple-300 transition-colors"
+                    <button
+                        onClick={onDetailsClick}
+                        className="inline-flex items-center text-white font-medium hover:text-purple-300 transition-colors bg-transparent border-none cursor-pointer"
                     >
                         Zobacz szczegóły
                         <svg
@@ -84,7 +86,7 @@ export default function ProjectCard({
                                 d="M17 8l4 4m0 0l-4 4m4-4H3"
                             />
                         </svg>
-                    </a>
+                    </button>
                 </div>
             </div>
         </motion.div>

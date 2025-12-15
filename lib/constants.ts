@@ -289,24 +289,24 @@ export const PORTFOLIO_PROJECTS = [
     ]
   },
   {
-    id: 'corporate-landing-page',
-    title: 'Corporate Landing Page',
+    id: 'warsztat-mechaniczny',
+    title: 'Warsztat Mechaniczny - Pakiet START',
     shortDescription:
-      'Reprezentacyjna strona dla firmy konsultingowej. Elegancki design, sekcje "O nas", "Usługi" i formularz kontaktowy. Pełna responsywność i optymalizacja SEO.',
+      'Profesjonalna strona dla warsztatu samochodowego. Responsywny design, sekcje usług, o warsztacie, formularz kontaktowy. Zbudowana według specyfikacji pakietu START.',
     fullDescription:
-      'Elegancka wizytówka online dla firmy doradczej. Strona musiała budzić zaufanie i profesjonalizm. Postawiliśmy na stonowaną kolorystykę, dużo białej przestrzeni i wysokiej klasy typografię.',
-    tags: ['Next.js', 'GSAP', 'Tailwind CSS'],
-    imageSrc: '/assets/projects/dashboard.png', // Reusing image
-    link: '#',
-    client: 'ConsultCorp',
-    timeline: '2 tygodnie',
-    role: 'Web Developer',
-    challenge: 'Przedstawienie dużej ilości tekstu ofertowego w sposób, który nie przytłoczy użytkownika.',
-    solution: 'Zastosowanie akordeonów, zakładek i interaktywnych elementów UI, które dawkują wiedzę użytkownikowi.',
+      'Kompleksowa strona typu one-page dla warsztatu samochodowego. Zawiera hero section z call-to-action, przegląd 6 głównych usług, sekcję "O nas" z zdjęciem zespołu oraz funkcjonalny formularz kontaktowy.',
+    tags: ['Next.js', 'Tailwind CSS', 'TypeScript', 'Responsive'],
+    imageSrc: '/assets/projects/mechanik-demo.png',
+    link: '/demos/mechanik',
+    client: 'Demo Project',
+    timeline: '1 tydzień',
+    role: 'Full Stack Developer',
+    challenge: 'Stworzenie profesjonalnej strony warsztatu samochodowego zgodnie z pakietem START - max 4 sekcje, bez animacji, z funkcjonalnym formularzem kontaktowym.',
+    solution: 'Wykorzystanie Next.js 14 z App Router, Tailwind CSS dla stylowania oraz Lucide React do ikon. Zastosowanie wzorca flex justify-center dla prawidłowego centrowania sekcji.',
     results: [
-      'Zwiększenie zapytań ofertowych o 30%',
-      'Czas ładowania strony poniżej 1 sekundy',
-      'Pełna zgodność z wymogami WCAG 2.1'
+      'Pełna responsywność na wszystkich urządzeniach',
+      'Czas ładowania poniżej 2 sekund',
+      'Zgodność ze specyfikacją pakietu START'
     ]
   },
 ];
