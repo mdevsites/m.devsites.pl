@@ -23,7 +23,7 @@ export default function PhotographerPage() {
                 <div className="absolute inset-0 bg-black/30" />
 
                 {/* Content */}
-                <div className="relative z-10 flex h-full flex-col items-center justify-center text-center text-white px-4">
+                <div className="relative z-10 flex h-full flex-col items-center justify-center text-center text-white" style={{ paddingLeft: '24px', paddingRight: '24px' }}>
                     <h1 className="font-serif text-5xl md:text-7xl lg:text-8xl tracking-tight mb-4 animate-fade-in-up">
                         Anna Kowalska
                     </h1>
@@ -60,7 +60,7 @@ export default function PhotographerPage() {
             {/* Spacer for visual separation and scroll anchoring */}
             <div id="gallery" className="h-24 md:h-32 bg-white w-full" />
 
-            <section className="pb-24 pt-4 px-4 bg-white">
+            <section className="pb-24 pt-4 bg-white" style={{ paddingLeft: '24px', paddingRight: '24px' }}>
                 <div className="w-full flex justify-center">
                     <div className="flex flex-col md:flex-row gap-4 max-w-6xl w-full px-4 md:px-0">
                         {/* Column 1 */}
@@ -113,7 +113,7 @@ export default function PhotographerPage() {
             {/* Spacer for visual separation */}
             <div className="h-16 md:h-32 bg-white w-full" />
             {/* SEKCJA 3: O MNIE */}
-            <section className="px-4 bg-gray-100" style={{ paddingTop: '12rem', paddingBottom: '12rem' }}>
+            <section className="bg-gray-100" style={{ paddingTop: '12rem', paddingBottom: '12rem', paddingLeft: '24px', paddingRight: '24px' }}>
                 <div className="w-full flex justify-center">
                     <div className="max-w-4xl mx-auto text-center w-full">
                         <h2 className="font-serif text-3xl md:text-4xl mb-8">Cześć, jestem Anna</h2>
@@ -137,7 +137,7 @@ export default function PhotographerPage() {
             <div className="h-16 md:h-32 bg-white w-full" />
 
             {/* SEKCJA 4: KONTAKT */}
-            <section className="py-24 md:py-32 px-4 bg-white" id="contact">
+            <section className="py-24 md:py-32 bg-white" id="contact" style={{ paddingLeft: '24px', paddingRight: '24px' }}>
                 <div className="w-full flex justify-center">
                     <div className="max-w-4xl mx-auto w-full">
                         <div className="text-center" style={{ marginBottom: '4rem' }}>
@@ -235,7 +235,7 @@ export default function PhotographerPage() {
             {/* FOOTER */}
             <footer className="bg-black text-white py-12 border-t border-gray-900 border-none">
                 <div className="w-full flex justify-center">
-                    <div className="max-w-7xl mx-auto px-4 text-center w-full">
+                    <div className="max-w-7xl mx-auto text-center w-full" style={{ paddingLeft: '24px', paddingRight: '24px' }}>
                         <p className="font-serif text-2xl mb-4">Anna Kowalska</p>
                         <p className="text-gray-500 text-xs tracking-widest uppercase">
                             © 2024 Photography. All rights reserved.

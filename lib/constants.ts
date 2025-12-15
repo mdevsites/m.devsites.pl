@@ -225,69 +225,7 @@ export const SERVICE_PACKAGES = [
 ];
 // Portfolio Projects Data
 export const PORTFOLIO_PROJECTS = [
-  {
-    id: 'saas-analytics-dashboard',
-    title: 'SaaS Analytics Dashboard',
-    shortDescription:
-      'Kompleksowy dashboard analityczny dla platformy SaaS. Zawiera interaktywne wykresy, zarządzanie użytkownikami i raportowanie w czasie rzeczywistym. Zaprojektowany z myślą o czytelności danych i intuicyjnej nawigacji.',
-    fullDescription:
-      'Projekt obejmował stworzenie kompleksowego panelu administracyjnego dla klienta z branży SaaS. Głównym wyzwaniem było przedstawienie dużej ilości danych w czytelny sposób. Zastosowaliśmy jasny podział na sekcje, interaktywne wykresy oraz tryb ciemny/jasny dla wygody użytkowników.',
-    tags: ['React', 'Next.js', 'Tailwind CSS', 'Recharts'],
-    imageSrc: '/assets/projects/dashboard.png',
-    link: '#',
-    client: 'TechAnalytics Ltd.',
-    timeline: '4 tygodnie',
-    role: 'Full Stack Developer',
-    challenge: 'Konieczność przetworzenia i wizualizacji milionów rekordów danych w czasie rzeczywistym bez utraty wydajności aplikacji.',
-    solution: 'Wykorzystanie renderowania po stronie serwera (SSR) w Next.js oraz biblioteki Recharts do lekkich, ale potężnych wizualizacji.',
-    results: [
-      'Zwiększenie szybkości ładowania raportów o 60%',
-      'Pozytywny feedback od 95% użytkowników beta',
-      'Intuicyjny interfejs niewymagający szkolenia'
-    ]
-  },
-  {
-    id: 'ecommerce-fashion-store',
-    title: 'E-commerce Fashion Store',
-    shortDescription:
-      'Nowoczesny sklep internetowy dla marki odzieżowej premium. Minimalistyczny design, płynne animacje i zoptymalizowany proces zakupowy. Integracja z systemem płatności i zarządzaniem stanami magazynowymi.',
-    fullDescription:
-      'Dla marki modowej Premium stworzyliśmy sklep, który jest nie tylko miejscem zakupów, ale wizytówką stylu. Skupiliśmy się na wysokiej jakości zdjęciach, animacjach przy przejściach między stronami oraz bezproblemowym procesie checkoutu.',
-    tags: ['Next.js', 'Shopify', 'Framer Motion', 'Stripe'],
-    imageSrc: '/assets/projects/ecommerce.png',
-    link: '#',
-    client: 'ModaVogue',
-    timeline: '6 tygodni',
-    role: 'Frontend Developer & UI Designer',
-    challenge: 'Stworzenie unikalnego doświadczenia zakupowego, które odróżni markę od konkurencji na Shopify.',
-    solution: 'Headless Shopify z frontendem w Next.js. Pozwoliło to na pełną swobodę w designie i animacjach przy zachowaniu potężnego backendu e-commerce.',
-    results: [
-      'Wzrost konwersji o 25% w pierwszym kwartale',
-      'Średni czas sesji wydłużony o 40%',
-      'Bezproblemowa obsługa ruchu podczas Black Friday'
-    ]
-  },
-  {
-    id: 'fintech-mobile-app',
-    title: 'FinTech Mobile App',
-    shortDescription:
-      'Interfejs aplikacji bankowej nowej generacji. Ciemny motyw, bezpieczne logowanie biometryczne i wizualizacja wydatków. Skupienie na UX i bezpieczeństwie transakcji finansowych.',
-    fullDescription:
-      'Projekt interfejsu i prototypu aplikacji fintechowej pomagającej w zarządzaniu finansami osobistymi. Kluczowe było połączenie najwyższych standardów bezpieczeństwa z przyjaznym i nowoczesnym designem.',
-    tags: ['React Native', 'TypeScript', 'Node.js', 'GraphQL'],
-    imageSrc: '/assets/projects/mobile-app.png',
-    link: '#',
-    client: 'FinSmart',
-    timeline: '8 tygodni',
-    role: 'Lead Developer',
-    challenge: 'Zbudowanie zaufania użytkowników poprzez design przy jednoczesnym uproszczeniu skomplikowanych operacji bankowych.',
-    solution: 'Zastosowanie biometrii, jasnych komunikatów bezpieczeństwa oraz "grywalizacji" oszczędzania poprzez interaktywne cele.',
-    results: [
-      'Aplikacja wyróżniona w App Store',
-      'Ponad 10,000 pobrań w pierwszym miesiącu',
-      'Wysoka ocena 4.8/5 w sklepach z aplikacjami'
-    ]
-  },
+
   {
     id: 'warsztat-mechaniczny',
     title: 'Warsztat Mechaniczny - Pakiet START',

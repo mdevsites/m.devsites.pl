@@ -24,7 +24,8 @@ export default function MechanikPage() {
     return (
         <div className="min-h-screen bg-white">
             {/* HERO SECTION - Banner style (70vh) */}
-            <section className="relative min-h-[50vh] md:min-h-[70vh] flex items-center justify-center py-12 md:py-0">
+            {/* HERO SECTION - Improved Mobile Layout */}
+            <section className="relative min-h-[50vh] md:min-h-[70vh] flex flex-col md:flex-row md:items-center md:justify-center py-12 md:py-0">
                 {/* Background Image */}
                 <div className="absolute inset-0 z-0">
                     <Image
@@ -38,61 +39,66 @@ export default function MechanikPage() {
                     <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/70" />
                 </div>
 
-                {/* Contact Info Box - Top Right */}
+                {/* Logo Box - Top Left (Mobile: Relative/Top, Desktop: Absolute/Left) */}
+                <div
+                    className="relative md:absolute w-full md:w-auto flex justify-center md:block mb-6 md:mb-0"
+                    style={{
+                        zIndex: 20
+                    }}
+                >
+                    <div className="md:absolute md:top-6 md:left-6">
+                        <Image
+                            src="/assets/demos/mechanik/logo-vector.svg"
+                            alt="Warsztat Auto Logo"
+                            width={200}
+                            height={80}
+                            style={{ objectFit: 'contain' }}
+                        />
+                    </div>
+                </div>
+
+                {/* Contact Info Box - Top Right (Desktop Only) */}
                 <div
                     className="absolute hidden md:block"
                     style={{
                         top: '24px',
                         right: '24px',
-                        backgroundColor: 'rgba(255, 255, 255, 0.7)',
-                        backdropFilter: 'blur(12px)',
-                        WebkitBackdropFilter: 'blur(12px)',
-                        padding: '12px 24px',
-                        borderRadius: '16px',
-                        boxShadow: '0 8px 32px rgba(0, 0, 0, 0.1)',
-                        border: '1px solid rgba(255, 255, 255, 0.4)',
                         zIndex: 20
                     }}
                 >
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', fontSize: '14px' }}>
-                        <a
-                            href="tel:+48123456789"
-                            className="hover:opacity-70 transition"
-                            style={{ display: 'flex', alignItems: 'center', gap: '8px', color: '#111827' }}
-                        >
-                            <Phone className="w-4 h-4" style={{ color: '#1E40AF' }} />
-                            <span style={{ fontWeight: 500 }}>+48 123 456 789</span>
-                        </a>
-                        <a
-                            href="mailto:kontakt@warsztat-auto.pl"
-                            className="hover:opacity-70 transition"
-                            style={{ display: 'flex', alignItems: 'center', gap: '8px', color: '#111827' }}
-                        >
-                            <Mail className="w-4 h-4" style={{ color: '#1E40AF' }} />
-                            <span style={{ fontWeight: 500 }}>kontakt@warsztat-auto.pl</span>
-                        </a>
+                    <div
+                        style={{
+                            backgroundColor: 'rgba(0, 0, 0, 0.6)',
+                            backdropFilter: 'blur(12px)',
+                            WebkitBackdropFilter: 'blur(12px)',
+                            padding: '12px 24px',
+                            borderRadius: '16px',
+                            boxShadow: '0 8px 32px rgba(0, 0, 0, 0.3)',
+                            border: '1px solid rgba(255, 255, 255, 0.1)',
+                        }}
+                    >
+                        <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', fontSize: '14px' }}>
+                            <a
+                                href="tel:+48123456789"
+                                className="hover:opacity-70 transition"
+                                style={{ display: 'flex', alignItems: 'center', gap: '8px', color: '#FFFFFF' }}
+                            >
+                                <Phone className="w-4 h-4" style={{ color: '#60A5FA' }} />
+                                <span style={{ fontWeight: 500 }}>+48 123 456 789</span>
+                            </a>
+                            <a
+                                href="mailto:kontakt@warsztat-auto.pl"
+                                className="hover:opacity-70 transition"
+                                style={{ display: 'flex', alignItems: 'center', gap: '8px', color: '#FFFFFF' }}
+                            >
+                                <Mail className="w-4 h-4" style={{ color: '#60A5FA' }} />
+                                <span style={{ fontWeight: 500 }}>kontakt@warsztat-auto.pl</span>
+                            </a>
+                        </div>
                     </div>
                 </div>
 
-                {/* Logo Box - Top Left */}
-                <div
-                    className="absolute hidden md:block"
-                    style={{
-                        top: '24px',
-                        left: '24px',
-                        zIndex: 20
-                    }}
-                >
-                    <Image
-                        src="/assets/demos/mechanik/logo-vector.svg"
-                        alt="Warsztat Auto Logo"
-                        width={200}
-                        height={80}
-                        style={{ objectFit: 'contain' }}
-                    />
-                </div>
-
-                {/* Content */}
+                {/* Content - Vertical Center on Desktop/Mobile */}
                 <div className="relative z-10 text-center text-white px-6 max-w-4xl mx-auto">
                     <h2 className="text-lg md:text-[48px] font-bold mb-4 md:mb-6 leading-tight">
                         Profesjonalny Serwis Samochodowy
@@ -109,9 +115,10 @@ export default function MechanikPage() {
                             paddingRight: '40px',
                             paddingTop: '16px',
                             paddingBottom: '16px',
-                            fontSize: '20px'
+                            fontSize: '20px',
+                            marginTop: '48px'
                         }}
-                        className="inline-block hover:opacity-90 text-white font-semibold rounded-lg transition-opacity duration-200"
+                        className="hidden md:inline-block hover:opacity-90 text-white font-semibold rounded-lg transition-opacity duration-200"
                     >
                         Umów wizytę
                     </a>
@@ -160,7 +167,7 @@ export default function MechanikPage() {
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 justify-items-center">
                             {/* Service 1 */}
                             {/* Service 1 */}
-                            <div className="bg-white aspect-square w-full shadow-lg p-8 hover:shadow-2xl hover:-translate-y-2 hover:shadow-blue-900/10 transition-all duration-300 flex flex-col items-center justify-center text-center group">
+                            <div className="bg-gradient-to-br from-white to-gray-50 border border-gray-200 aspect-square w-full shadow-xl p-8 hover:shadow-2xl hover:-translate-y-2 hover:shadow-blue-900/10 transition-all duration-300 flex flex-col items-center justify-center text-center group rounded-xl">
                                 <div
                                     className="w-20 h-20 flex items-center justify-center mb-6"
                                     style={{ backgroundColor: '#1E40AF' }}
@@ -184,7 +191,7 @@ export default function MechanikPage() {
 
                             {/* Service 2 */}
                             {/* Service 2 */}
-                            <div className="bg-white aspect-square w-full shadow-lg p-8 hover:shadow-2xl hover:-translate-y-2 hover:shadow-blue-900/10 transition-all duration-300 flex flex-col items-center justify-center text-center group">
+                            <div className="bg-gradient-to-br from-white to-gray-50 border border-gray-200 aspect-square w-full shadow-xl p-8 hover:shadow-2xl hover:-translate-y-2 hover:shadow-blue-900/10 transition-all duration-300 flex flex-col items-center justify-center text-center group rounded-xl">
                                 <div
                                     className="w-20 h-20 flex items-center justify-center mb-6"
                                     style={{ backgroundColor: '#1E40AF' }}
@@ -207,7 +214,7 @@ export default function MechanikPage() {
 
                             {/* Service 3 */}
                             {/* Service 3 */}
-                            <div className="bg-white aspect-square w-full shadow-lg p-8 hover:shadow-2xl hover:-translate-y-2 hover:shadow-blue-900/10 transition-all duration-300 flex flex-col items-center justify-center text-center group">
+                            <div className="bg-gradient-to-br from-white to-gray-50 border border-gray-200 aspect-square w-full shadow-xl p-8 hover:shadow-2xl hover:-translate-y-2 hover:shadow-blue-900/10 transition-all duration-300 flex flex-col items-center justify-center text-center group rounded-xl">
                                 <div
                                     className="w-20 h-20 flex items-center justify-center mb-6"
                                     style={{ backgroundColor: '#1E40AF' }}
@@ -230,7 +237,7 @@ export default function MechanikPage() {
 
                             {/* Service 4 */}
                             {/* Service 4 */}
-                            <div className="bg-white aspect-square w-full shadow-lg p-8 hover:shadow-2xl hover:-translate-y-2 hover:shadow-blue-900/10 transition-all duration-300 flex flex-col items-center justify-center text-center group">
+                            <div className="bg-gradient-to-br from-white to-gray-50 border border-gray-200 aspect-square w-full shadow-xl p-8 hover:shadow-2xl hover:-translate-y-2 hover:shadow-blue-900/10 transition-all duration-300 flex flex-col items-center justify-center text-center group rounded-xl">
                                 <div
                                     className="w-20 h-20 flex items-center justify-center mb-6"
                                     style={{ backgroundColor: '#1E40AF' }}
@@ -253,7 +260,7 @@ export default function MechanikPage() {
 
                             {/* Service 5 */}
                             {/* Service 5 */}
-                            <div className="bg-white aspect-square w-full shadow-lg p-8 hover:shadow-2xl hover:-translate-y-2 hover:shadow-blue-900/10 transition-all duration-300 flex flex-col items-center justify-center text-center group">
+                            <div className="bg-gradient-to-br from-white to-gray-50 border border-gray-200 aspect-square w-full shadow-xl p-8 hover:shadow-2xl hover:-translate-y-2 hover:shadow-blue-900/10 transition-all duration-300 flex flex-col items-center justify-center text-center group rounded-xl">
                                 <div
                                     className="w-20 h-20 flex items-center justify-center mb-6"
                                     style={{ backgroundColor: '#1E40AF' }}
@@ -276,7 +283,7 @@ export default function MechanikPage() {
 
                             {/* Service 6 */}
                             {/* Service 6 */}
-                            <div className="bg-white aspect-square w-full shadow-lg p-8 hover:shadow-2xl hover:-translate-y-2 hover:shadow-blue-900/10 transition-all duration-300 flex flex-col items-center justify-center text-center group">
+                            <div className="bg-gradient-to-br from-white to-gray-50 border border-gray-200 aspect-square w-full shadow-xl p-8 hover:shadow-2xl hover:-translate-y-2 hover:shadow-blue-900/10 transition-all duration-300 flex flex-col items-center justify-center text-center group rounded-xl">
                                 <div
                                     className="w-20 h-20 flex items-center justify-center mb-6"
                                     style={{ backgroundColor: '#1E40AF' }}
@@ -304,7 +311,7 @@ export default function MechanikPage() {
             {/* ABOUT SECTION */}
             {/* Padding: 80px, bg-gray-50 */}
             <section className="bg-gray-100 flex justify-center" style={{ paddingTop: '128px', paddingBottom: '128px' }}>
-                <div className="px-8 w-full max-w-6xl">
+                <div className="w-full max-w-6xl" style={{ paddingLeft: '24px', paddingRight: '24px' }}>
                     <div>
                         {/* Split: 50/50 */}
                         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
@@ -391,14 +398,14 @@ export default function MechanikPage() {
             {/* CONTACT SECTION */}
             {/* Padding: 80px */}
             <section id="kontakt" className="flex justify-center" style={{ paddingTop: '128px', paddingBottom: '128px' }}>
-                <div className="px-8 w-full max-w-6xl">
+                <div className="w-full max-w-6xl" style={{ paddingLeft: '24px', paddingRight: '24px' }}>
 
 
                     {/* Split: 40% info, 60% form */}
                     <div className="grid grid-cols-1 lg:grid-cols-5 gap-12">
                         {/* Contact Info - 40% (2 of 5 columns) */}
-                        <div className="lg:col-span-2 flex flex-col justify-between h-full py-2">
-                            <div className="flex items-start space-x-4">
+                        <div className="lg:col-span-2 flex flex-col justify-between h-full py-2 gap-8">
+                            <div className="flex flex-col items-center text-center lg:flex-row lg:items-start lg:text-left gap-4">
                                 <MapPin
                                     className="w-6 h-6 mt-1 flex-shrink-0"
                                     style={{ color: '#1E40AF' }}
@@ -418,7 +425,7 @@ export default function MechanikPage() {
                                 </div>
                             </div>
 
-                            <div className="flex items-start space-x-4">
+                            <div className="flex flex-col items-center text-center lg:flex-row lg:items-start lg:text-left gap-4">
                                 <Phone
                                     className="w-6 h-6 mt-1 flex-shrink-0"
                                     style={{ color: '#1E40AF' }}
@@ -434,7 +441,7 @@ export default function MechanikPage() {
                                 </div>
                             </div>
 
-                            <div className="flex items-start space-x-4">
+                            <div className="flex flex-col items-center text-center lg:flex-row lg:items-start lg:text-left gap-4">
                                 <Mail
                                     className="w-6 h-6 mt-1 flex-shrink-0"
                                     style={{ color: '#1E40AF' }}
@@ -450,7 +457,7 @@ export default function MechanikPage() {
                                 </div>
                             </div>
 
-                            <div className="flex items-start space-x-4">
+                            <div className="flex flex-col items-center text-center lg:flex-row lg:items-start lg:text-left gap-4">
                                 <Clock
                                     className="w-6 h-6 mt-1 flex-shrink-0"
                                     style={{ color: '#1E40AF' }}
