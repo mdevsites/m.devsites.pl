@@ -20,7 +20,7 @@ const outfit = Outfit({
 
 // Metadata configuration for SEO, Open Graph, and favicon
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://mdev-portfolio.vercel.app'), // Ustaw NEXT_PUBLIC_SITE_URL w .env.local
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://www.mdevsites.pl'),
   title: {
     default: "M.DEV - Tworzenie Stron Internetowych | Profesjonalne Strony WWW",
     template: "%s | M.DEV"
