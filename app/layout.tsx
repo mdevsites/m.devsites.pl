@@ -1,13 +1,12 @@
-"use client";
-
 import { Inter, Outfit } from "next/font/google";
+import type { Metadata } from "next";
 import "./globals.css";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import StickyButtons from "@/components/layout/StickyButtons";
 import Script from "next/script";
-import { useSearchParams, usePathname } from "next/navigation";
 import { Suspense } from "react";
+import LayoutClient from "./layout-client";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -19,38 +18,84 @@ const outfit = Outfit({
   subsets: ["latin"],
 });
 
-function LayoutContent({ children }: { children: React.ReactNode }) {
-  const searchParams = useSearchParams();
-  const pathname = usePathname();
-  const hideNav = searchParams.get("hideNav") === "true";
-  const isDemo = pathname?.startsWith("/demos");
+// Metadata configuration for SEO, Open Graph, and favicon
+export const metadata: Metadata = {
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://mdev-portfolio.vercel.app'), // Ustaw NEXT_PUBLIC_SITE_URL w .env.local
+  title: {
+    default: "M.DEV - Tworzenie Stron Internetowych | Profesjonalne Strony WWW",
+    template: "%s | M.DEV"
+  },
+  description: "Tworzę nowoczesne strony internetowe dla firm. Responsywny design, szybka realizacja, konkurencyjne ceny. Skontaktuj się dla bezpłatnej wyceny!",
+  keywords: [
+    "tworzenie stron internetowych",
+    "strony www",
+    "web development",
+    "Next.js",
+    "React",
+    "strony firmowe",
+    "portfolio",
+    "web design",
+    "programista",
+    "developer"
+  ],
+  authors: [{ name: "M.DEV" }],
+  creator: "M.DEV",
+  publisher: "M.DEV",
 
-  return (
-    <>
-      {!hideNav && !isDemo && <Navbar />}
-      <main>{children}</main>
-      {!hideNav && !isDemo && <Footer />}
-      {!hideNav && !isDemo && <StickyButtons />}
+  // Open Graph - dla social media i Google
+  openGraph: {
+    type: "website",
+    locale: "pl_PL",
+    url: "https://m.dev",
+    siteName: "M.DEV",
+    title: "M.DEV - Tworzenie Profesjonalnych Stron Internetowych",
+    description: "Tworzę nowoczesne strony internetowe dla firm. Responsywny design, szybka realizacja, konkurencyjne ceny.",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "M.DEV - Profesjonalne Tworzenie Stron Internetowych",
+      }
+    ],
+  },
 
-      {process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID && (
-        <>
-          <Script
-            src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID}`}
-            strategy="afterInteractive"
-          />
-          <Script id="google-analytics" strategy="afterInteractive">
-            {`
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
-              gtag('config', '${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID}');
-            `}
-          </Script>
-        </>
-      )}
-    </>
-  );
-}
+  // Twitter Card
+  twitter: {
+    card: "summary_large_image",
+    title: "M.DEV - Tworzenie Stron Internetowych",
+    description: "Tworzę nowoczesne strony internetowe dla firm. Responsywny design, szybka realizacja, konkurencyjne ceny.",
+    images: ["/og-image.png"],
+  },
+
+  // Favicon i ikony
+  icons: {
+    icon: [
+      { url: "/favicon.png", type: "image/png" },
+      { url: "/favicon.ico", sizes: "any" }
+    ],
+    apple: [
+      { url: "/favicon.png", sizes: "180x180", type: "image/png" }
+    ],
+  },
+
+  // Dodatkowe meta tagi
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
+
+  verification: {
+    // google: "your-google-verification-code", // Dodaj później z Google Search Console
+  },
+};
 
 export default function RootLayout({
   children,
@@ -59,17 +104,31 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pl" className="scroll-smooth">
-      <head>
-        <title>M.DEV - Tworzenie Stron Internetowych | Profesjonalne Strony WWW</title>
-        <meta name="description" content="Tworzę nowoczesne strony internetowe dla firm. Responsywny design, szybka realizacja, konkurencyjne ceny. Skontaktuj się dla bezpłatnej wyceny!" />
-        <meta name="keywords" content="tworzenie stron internetowych, strony www, web development, Next.js, React, strony firmowe" />
-      </head>
       <body
         className={`${inter.variable} ${outfit.variable} antialiased`}
       >
         <Suspense fallback={null}>
-          <LayoutContent>{children}</LayoutContent>
+          <LayoutClient>
+            {children}
+          </LayoutClient>
         </Suspense>
+
+        {process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID && (
+          <>
+            <Script
+              src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID}`}
+              strategy="afterInteractive"
+            />
+            <Script id="google-analytics" strategy="afterInteractive">
+              {`
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config', '${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID}');
+              `}
+            </Script>
+          </>
+        )}
       </body>
     </html>
   );
