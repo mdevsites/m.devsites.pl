@@ -4,7 +4,11 @@ import React, { useState, useEffect, Suspense } from 'react';
 import { motion } from 'framer-motion';
 import { FiMail, FiPhone } from 'react-icons/fi';
 import { useSearchParams } from 'next/navigation';
-import BackgroundEffects from "@/components/ui/BackgroundEffects";
+import dynamic from 'next/dynamic';
+
+const BackgroundEffects = dynamic(() => import('@/components/ui/BackgroundEffects'), {
+    ssr: false,
+});
 
 function ContactForm() {
     const searchParams = useSearchParams();

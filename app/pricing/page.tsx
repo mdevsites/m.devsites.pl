@@ -10,7 +10,11 @@ import {
     XMarkIcon,
 } from '@heroicons/react/24/outline';
 import CTASection from '@/components/home/CTASection';
-import BackgroundEffects from "@/components/ui/BackgroundEffects";
+import dynamic from 'next/dynamic';
+
+const BackgroundEffects = dynamic(() => import('@/components/ui/BackgroundEffects'), {
+    ssr: false,
+});
 
 // --- DATA FROM USER REQUEST ---
 

@@ -1,5 +1,11 @@
+'use client';
+
 import Link from 'next/link';
-import BackgroundEffects from '@/components/ui/BackgroundEffects';
+import dynamic from 'next/dynamic';
+
+const BackgroundEffects = dynamic(() => import('@/components/ui/BackgroundEffects'), {
+    ssr: false,
+});
 
 export default function NotFound() {
     return (

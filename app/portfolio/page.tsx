@@ -4,7 +4,11 @@ import { useState } from "react";
 import ProjectCard from "@/components/portfolio/ProjectCard";
 import ProjectModal from "@/components/portfolio/ProjectModal";
 import { PORTFOLIO_PROJECTS } from "@/lib/constants";
-import BackgroundEffects from "@/components/ui/BackgroundEffects";
+import dynamic from 'next/dynamic';
+
+const BackgroundEffects = dynamic(() => import('@/components/ui/BackgroundEffects'), {
+    ssr: false,
+});
 
 export default function PortfolioPage() {
     const [selectedProject, setSelectedProject] = useState<{

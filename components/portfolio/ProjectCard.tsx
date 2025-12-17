@@ -34,8 +34,17 @@ export default function ProjectCard({
         >
             {/* Image Container */}
             <div
-                className="relative w-full aspect-[16/10] md:aspect-[16/9] overflow-hidden bg-[#0A0A0A] cursor-pointer outline-none focus:outline-none"
+                className="relative w-full aspect-[16/10] md:aspect-[16/9] overflow-hidden bg-[#0A0A0A] cursor-pointer outline-none focus:outline-none focus-visible:ring-2 focus-visible:ring-purple-500"
                 onClick={onDetailsClick}
+                onKeyDown={(e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        onDetailsClick?.();
+                    }
+                }}
+                role="button"
+                tabIndex={0}
+                aria-label={`Zobacz szczegóły projektu ${title}`}
             >
                 {/* Image */}
                 <Image
@@ -76,8 +85,16 @@ export default function ProjectCard({
 
                 {/* Title */}
                 <h3
-                    className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 leading-tight tracking-tight text-center group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-purple-400 group-hover:to-pink-400 transition-all duration-500 cursor-pointer outline-none focus:outline-none"
+                    className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 leading-tight tracking-tight text-center group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-purple-400 group-hover:to-pink-400 transition-all duration-500 cursor-pointer outline-none focus:outline-none focus-visible:ring-2 focus-visible:ring-purple-500 rounded-lg px-2"
                     onClick={onDetailsClick}
+                    onKeyDown={(e) => {
+                        if (e.key === 'Enter' || e.key === ' ') {
+                            e.preventDefault();
+                            onDetailsClick?.();
+                        }
+                    }}
+                    role="button"
+                    tabIndex={0}
                 >
                     {title}
                 </h3>

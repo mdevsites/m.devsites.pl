@@ -1,5 +1,11 @@
+'use client';
+
 import React from 'react';
-import BackgroundEffects from '@/components/ui/BackgroundEffects';
+import dynamic from 'next/dynamic';
+
+const BackgroundEffects = dynamic(() => import('@/components/ui/BackgroundEffects'), {
+    ssr: false,
+});
 
 export default function PrivacyPolicyPage() {
     return (
