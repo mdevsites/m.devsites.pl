@@ -9,6 +9,7 @@ import { Suspense } from "react";
 import LayoutClient from "./layout-client";
 import GoogleAnalytics from "@/components/analytics/GoogleAnalytics";
 import CookieConsent from "@/components/ui/CookieConsent";
+import StructuredData from "@/components/seo/StructuredData";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -109,6 +110,7 @@ export default function RootLayout({
       <body
         className={`${inter.variable} ${outfit.variable} antialiased`}
       >
+        <StructuredData />
         <Suspense fallback={null}>
           <LayoutClient>
             {children}

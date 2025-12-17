@@ -1,6 +1,7 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import { createPortal } from "react-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { X } from "lucide-react";
 
@@ -17,6 +18,13 @@ export default function ProjectModal({
     demoUrl,
     projectTitle,
 }: ProjectModalProps) {
+    const [mounted, setMounted] = useState(false);
+
+    useEffect(() => {
+        setMounted(true);
+        return () => setMounted(false);
+    }, []);
+
     // Handle ESC key press
     useEffect(() => {
         const handleEscape = (e: KeyboardEvent) => {
@@ -52,7 +60,9 @@ export default function ProjectModal({
         return `${url}${separator}hideNav=true`;
     };
 
-    return (
+    if (!mounted) return null;
+
+    return createPortal(
         <AnimatePresence>
             {isOpen && (
                 <motion.div
@@ -103,6 +113,7 @@ export default function ProjectModal({
                     </motion.div>
                 </motion.div>
             )}
-        </AnimatePresence>
+        </AnimatePresence>,
+        document.body
     );
 }

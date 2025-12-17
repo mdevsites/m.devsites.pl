@@ -1,35 +1,14 @@
-import type { Metadata } from "next";
-import { Montserrat, Open_Sans } from "next/font/google";
-import Navbar from "./components/Navbar";
-import Footer from "./components/Footer";
-
-const montserrat = Montserrat({
-    subsets: ["latin"],
-    variable: "--font-montserrat",
-});
-
-const openSans = Open_Sans({
-    subsets: ["latin"],
-    variable: "--font-open-sans",
-});
+import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-    title: "Beauty Salon - Salon kosmetyczny w Warszawie",
-    description: "Profesjonalny salon beauty w Warszawie. Stylizacja paznokci, zabiegi na twarz, makijaż.",
+    title: 'Elegance Salon - Nowoczesne Studio Urody | Demo',
+    description: 'Odkryj demo strony dla salonu piękności. Luksusowy design, sekcja usług, opinie klientów i formularz umawiania wizyt. Stwórz taką stronę dla swojego biznesu.',
 };
 
-export default function SalonLayout({
+export default function SalonBeautyLayout({
     children,
 }: {
     children: React.ReactNode;
 }) {
-    return (
-        <div className={`${montserrat.variable} ${openSans.variable} font-sans text-[#212121] bg-white selection:bg-[#D4AF37] selection:text-white [&_*]:text-center w-full`}>
-            <Navbar />
-            <main className="w-full">
-                {children}
-            </main>
-            <Footer />
-        </div>
-    );
+    return <>{children}</>;
 }
