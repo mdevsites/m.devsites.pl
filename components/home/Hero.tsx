@@ -24,21 +24,19 @@ export default function Hero() {
                 initial={{ opacity: 0, y: 40 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.3 }}
-                className="relative z-10 max-w-4xl mx-auto px-6"
+                className="relative z-10 max-w-4xl mx-auto px-6 will-change-transform"
             >
                 <div className="relative">
-                    <div className="absolute inset-0 z-[-1]"
+                    <div className="absolute inset-0 z-[-1] blur-[40px] md:blur-[80px]"
                         style={{
                             background: 'radial-gradient(circle at center, rgba(255, 255, 255, 0.18) 0%, rgba(255, 255, 255, 0.08) 35%, transparent 75%)',
-                            filter: 'blur(80px)',
                             transform: 'scale(1.5)',
                         }}
                     />
-                    {/* Secondary Purple Spot */}
-                    <div className="absolute inset-0 z-[-2] translate-x-[20%] translate-y-[20%]"
+                    {/* Secondary Purple Spot - Hidden on mobile for performance */}
+                    <div className="absolute inset-0 z-[-2] translate-x-[20%] translate-y-[20%] hidden md:block blur-[100px]"
                         style={{
                             background: 'radial-gradient(circle at center, rgba(168, 85, 247, 0.12) 0%, rgba(168, 85, 247, 0.04) 40%, transparent 70%)',
-                            filter: 'blur(100px)',
                             transform: 'scale(1.4)',
                         }}
                     />
@@ -52,7 +50,7 @@ export default function Hero() {
                                 initial={{ opacity: 0, y: 20 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ duration: 0.8, delay: 0.7 }}
-                                className="text-5xl md:text-6xl lg:text-7xl font-bold text-white tracking-tight leading-[1.2] mb-4"
+                                className="text-5xl md:text-6xl lg:text-7xl font-bold text-white tracking-tight leading-[1.2] mb-4 will-change-transform"
                             >
                                 Tworzę strony internetowe,<br />
                                 które są{' '}
@@ -162,6 +160,6 @@ export default function Hero() {
                 </motion.div>
             </motion.div>
 
-        </section>
+        </section >
     );
 }

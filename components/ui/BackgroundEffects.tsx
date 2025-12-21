@@ -72,10 +72,20 @@ export default function BackgroundEffects() {
 
         const initParticles = () => {
             particles = [];
-            // Higher density for dust effect
-            const numberOfParticles = (canvas!.width * canvas!.height) / 10000;
+            // Higher density for dust effect, but limited for performance
+            const area = canvas!.width * canvas!.height;
+            // Adaptive density: fewer particles on smaller screens
+            let particleCount = Math.floor(area / 15000);
 
-            for (let i = 0; i < numberOfParticles; i++) {
+            // Hard cap for mobile performance
+            const isMobile = window.innerWidth < 768;
+            const maxParticles = isMobile ? 50 : 150;
+
+            if (particleCount > maxParticles) {
+                particleCount = maxParticles;
+            }
+
+            for (let i = 0; i < particleCount; i++) {
                 let size = (Math.random() * 2); // 0-2px size for dust
                 let x = Math.random() * canvas!.width;
                 let y = Math.random() * canvas!.height;

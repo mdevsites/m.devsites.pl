@@ -117,13 +117,6 @@ h6 {
    GRADIENT UTILITIES
    =================================== */
 
-.gradient-hero {
-  background-image: url('/tlo6.png');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-}
-
 /* Dark Abstract Background - For sections outside Hero */
 .dark-abstract-bg {
   position: relative;
