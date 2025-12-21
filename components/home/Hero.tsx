@@ -2,10 +2,9 @@
 
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { ArrowRightIcon, BoltIcon } from '@heroicons/react/24/outline';
+import { ArrowRightIcon } from '@heroicons/react/24/outline';
 import { Logo } from '../ui/Logo';
 import { TypeAnimation } from 'react-type-animation';
-import CountUp from 'react-countup';
 
 export default function Hero() {
     return (
@@ -27,13 +26,14 @@ export default function Hero() {
                 className="relative z-10 max-w-4xl mx-auto px-6 will-change-transform"
             >
                 <div className="relative">
-                    <div className="absolute inset-0 z-[-1] blur-[40px] md:blur-[80px]"
+                    {/* Background Blobs - Heavy blur hidden on mobile */}
+                    <div className="absolute inset-0 z-[-1] hidden md:block md:blur-[80px]"
                         style={{
                             background: 'radial-gradient(circle at center, rgba(255, 255, 255, 0.18) 0%, rgba(255, 255, 255, 0.08) 35%, transparent 75%)',
                             transform: 'scale(1.5)',
                         }}
                     />
-                    {/* Secondary Purple Spot - Hidden on mobile for performance */}
+                    {/* Secondary Purple Spot - Hidden on mobile */}
                     <div className="absolute inset-0 z-[-2] translate-x-[20%] translate-y-[20%] hidden md:block blur-[100px]"
                         style={{
                             background: 'radial-gradient(circle at center, rgba(168, 85, 247, 0.12) 0%, rgba(168, 85, 247, 0.04) 40%, transparent 70%)',
@@ -54,7 +54,8 @@ export default function Hero() {
                             >
                                 Tworzę strony internetowe,<br />
                                 które są{' '}
-                                <span className="text-transparent bg-clip-text bg-gradient-to-r from-mesh-1 via-purple-400 to-mesh-2">
+                                {/* Mobile: New line + Solid Color. Desktop: Inline + Gradient */}
+                                <span className="block md:inline text-mesh-1 md:text-transparent md:bg-clip-text md:bg-gradient-to-r md:from-mesh-1 md:via-purple-400 md:to-mesh-2 mt-2 md:mt-0">
                                     <TypeAnimation
                                         sequence={[
                                             'szybkie',
@@ -160,6 +161,6 @@ export default function Hero() {
                 </motion.div>
             </motion.div>
 
-        </section >
+        </section>
     );
 }

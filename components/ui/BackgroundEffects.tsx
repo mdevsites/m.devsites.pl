@@ -12,6 +12,9 @@ export default function BackgroundEffects() {
         const ctx = canvas.getContext('2d');
         if (!ctx) return;
 
+        // Optimization: Disable entirely on mobile
+        if (window.innerWidth < 768) return;
+
         let animationFrameId: number;
         let particles: Particle[] = [];
 
