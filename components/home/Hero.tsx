@@ -11,7 +11,7 @@ export default function Hero() {
         <section className="relative h-screen w-full overflow-hidden flex items-center justify-center">
 
             {/* Gradient Overlay - Smooth transition to next section */}
-            <div className="absolute inset-x-0 bottom-0 h-[512px] bg-gradient-to-b from-transparent from-0% via-black/40 via-30% via-black/70 via-60% to-black to-100% pointer-events-none z-[5]" />
+            <div className="absolute inset-x-0 bottom-0 h-[700px] bg-gradient-to-b from-transparent via-black/20 via-40% via-black/80 via-80% to-black pointer-events-none z-[5]" />
 
             {/* LOGO - Fixed Top Left */}
             <div className="fixed top-8 left-8 z-50">
@@ -148,8 +148,7 @@ export default function Hero() {
                 transition={{ duration: 0.8, delay: 2 }}
                 className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 pointer-events-none"
             >
-                <div className="absolute top-[20%] left-[10%] w-[300px] h-[300px] bg-purple-600/15 blur-[120px] rounded-full mix-blend-screen" />
-                <div className="absolute bottom-[20%] right-[10%] w-[250px] h-[250px] bg-blue-600/10 blur-[100px] rounded-full mix-blend-screen" />
+
                 <motion.div
                     animate={{ y: [0, 8, 0] }}
                     transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}

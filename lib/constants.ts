@@ -14,8 +14,8 @@ export const CONTACT_INFO = {
 export const SOCIAL_LINKS = {
   facebook: 'https://facebook.com',
   instagram: 'https://instagram.com',
-  linkedin: 'https://linkedin.com',
-  github: 'https://github.com',
+  linkedin: 'https://www.linkedin.com/in/marcin-chrąchol-5a9a7b21b',
+  github: 'https://github.com/mdevsites',
 };
 
 // Navigation Menu Items

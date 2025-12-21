@@ -1,8 +1,9 @@
 "use client";
 
 import { useState } from "react";
-import ProjectCard from "@/components/portfolio/ProjectCard";
 import ProjectModal from "@/components/portfolio/ProjectModal";
+import DesktopProjectLayout from "@/components/portfolio/DesktopProjectLayout";
+import MobileProjectCarousel from "@/components/portfolio/MobileProjectCarousel";
 import { PORTFOLIO_PROJECTS } from "@/lib/constants";
 import dynamic from 'next/dynamic';
 
@@ -62,45 +63,27 @@ export default function PortfolioPage() {
                     </header>
 
                     {/* Projects Section */}
-                    <section style={{ paddingTop: '7rem' }} className="px-6 md:px-12 lg:px-16 pb-32">
-                        <div className="space-y-0">
-                            {PORTFOLIO_PROJECTS.map((project, index) => (
-                                <div key={project.id}>
-                                    <ProjectCard
-                                        title={project.title}
-                                        description={project.shortDescription}
-                                        tags={project.tags}
-                                        imageSrc={project.imageSrc}
-                                        link={project.link}
-                                        index={index}
-                                        onDetailsClick={() => setSelectedProject({
-                                            title: project.title,
-                                            link: project.link,
-                                        })}
-                                    />
-
-                                    {/* Separator - Not After Last Project */}
-                                    {index < PORTFOLIO_PROJECTS.length - 1 && (
-                                        <div style={{
-                                            marginTop: '10rem',
-                                            marginBottom: '10rem',
-                                            width: '100%',
-                                            display: 'flex',
-                                            justifyContent: 'center'
-                                        }}>
-                                            <div style={{
-                                                width: '700px',
-                                                maxWidth: '90%',
-                                                height: '1px',
-                                                backgroundColor: 'rgba(147, 51, 234, 0.3)',
-                                                border: '1px solid rgba(255, 255, 255, 0.2)'
-                                            }}></div>
-                                        </div>
-                                    )}
-                                </div>
-                            ))}
+                    <div className="relative z-10">
+                        {/* Desktop Layout (Hidden on Mobile) */}
+                        <div className="hidden lg:block">
+                            <DesktopProjectLayout
+                                onOpenProject={(project) => setSelectedProject({
+                                    title: project.title,
+                                    link: project.link,
+                                })}
+                            />
                         </div>
-                    </section>
+
+                        {/* Mobile Layout (Hidden on Desktop) */}
+                        <div className="block lg:hidden">
+                            <MobileProjectCarousel
+                                onOpenProject={(project) => setSelectedProject({
+                                    title: project.title,
+                                    link: project.link,
+                                })}
+                            />
+                        </div>
+                    </div>
 
                     {/* Bottom CTA Section */}
                     <section style={{ paddingTop: '5rem', paddingBottom: '5rem' }} className="px-6 md:px-12 lg:px-16">
