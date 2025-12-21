@@ -6,7 +6,7 @@ import ProjectModal from "@/components/portfolio/ProjectModal";
 import { PORTFOLIO_PROJECTS } from "@/lib/constants";
 import dynamic from 'next/dynamic';
 
-const BackgroundEffects = dynamic(() => import('@/components/ui/BackgroundEffects'), {
+const AuroraBackground = dynamic(() => import('@/components/ui/AuroraBackground'), {
     ssr: false,
 });
 
@@ -19,17 +19,17 @@ export default function PortfolioPage() {
     return (
         <div className="min-h-screen bg-[#050505] text-white selection:bg-purple-500/30 flex justify-center font-sans">
             {/* Background Gradients (from Pricing) */}
-            <div className="fixed inset-0 z-0 overflow-hidden pointer-events-none">
-                <div className="absolute top-0 right-0 w-[800px] h-[600px] bg-purple-900/20 blur-[120px] rounded-full mix-blend-screen" />
-                <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-blue-900/10 blur-[100px] rounded-full mix-blend-screen" />
-            </div>
+            {/* Background Gradients (Dual Tone Spot style) */}
+            {/* Geometric Grid Background */}
+            {/* Aurora Mesh Background */}
+            <AuroraBackground />
 
             <div className="w-full max-w-[1440px] relative z-10">
-                {/* Global Background Effects */}
-                <BackgroundEffects />
+                {/* Global Background Effects - Removed */}
+                {/* <BackgroundEffects /> */}
 
                 {/* Spacer for Navbar */}
-                <div className="h-24 w-full relative z-10" />
+                <div className="h-40 w-full relative z-10" />
 
                 <div className="relative z-10">
                     {/* Header Section */}
@@ -116,7 +116,7 @@ export default function PortfolioPage() {
                                 </div>
                                 <a
                                     href="/contact"
-                                    className="btn-glass inline-block"
+                                    className="group inline-flex items-center gap-3 px-10 py-4 rounded-full text-white font-medium text-lg transition-all duration-300 hover:bg-white/5 border border-white/10"
                                 >
                                     Skontaktuj się
                                 </a>

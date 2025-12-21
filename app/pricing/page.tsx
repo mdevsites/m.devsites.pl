@@ -11,7 +11,11 @@ import {
 import CTASection from '@/components/home/CTASection';
 import dynamic from 'next/dynamic';
 
-const BackgroundEffects = dynamic(() => import('@/components/ui/BackgroundEffects'), {
+const AuroraBackground = dynamic(() => import('@/components/ui/AuroraBackground'), {
+    ssr: false,
+});
+
+const PremiumBackground = dynamic(() => import('@/components/ui/PremiumBackground'), {
     ssr: false,
 });
 
@@ -79,19 +83,16 @@ export default function PricingPage() {
     return (
         <div className="min-h-screen bg-[#050505] text-white selection:bg-purple-500/30 font-sans">
             {/* Background Gradients */}
-            <div className="fixed inset-0 z-0 overflow-hidden pointer-events-none">
-                <div className="absolute top-0 right-0 w-[800px] h-[600px] bg-purple-900/20 blur-[120px] rounded-full mix-blend-screen" />
-                <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-blue-900/10 blur-[100px] rounded-full mix-blend-screen" />
-            </div>
+            {/* Background Gradients (Dual Tone Spot style from Hero) */}
+            {/* Aurora Mesh Background */}
+            <AuroraBackground />
 
             {/* Spacer for Navbar */}
-            <div className="h-24 w-full relative z-10" />
+            <div className="h-40 w-full relative z-10" />
 
+            {/* Particles Effect - Removed */}
+            {/* <BackgroundEffects /> */}
             <div className="relative z-10 pb-24 flex flex-col items-center" style={{ margin: '0 40px' }}>
-                {/* Particles Effect - Moved here for visibility */}
-                <BackgroundEffects />
-
-                {/* HEADLINE */}
                 <div className="text-center w-full mb-32 flex flex-col items-center">
                     <h1
                         className="text-4xl md:text-6xl font-bold mb-6 text-center leading-tight flex flex-col md:block animate-[fadeIn_0.8s_ease-out]" // Stack on mobile, inline on desktop if fits
@@ -119,21 +120,19 @@ export default function PricingPage() {
                         <div
                             key={pkg.id}
                             className={`
-                                relative group rounded-3xl p-1
-                                bg-gradient-to-b from-white/10 to-transparent
-                                hover:from-white/20 transition-all duration-300
+                                relative group rounded-[2.5rem] p-0
+                                bg-transparent
                                 flex flex-col h-full max-w-[450px] mx-auto w-full min-h-[600px] md:min-h-[650px]
                                 animate-[fadeIn_0.6s_ease-out_both]
                             `}
                             style={{ animationDelay: `${index * 0.1 + 0.2}s` }}
                         >
                             {/* Card Inner */}
-                            <div className="h-full bg-[#0a0a0a]/90 backdrop-blur-xl rounded-[22px] p-8 flex flex-col items-center relative overflow-hidden flex-grow border border-white/5">
+                            <div className="h-full bg-[#0a0a0a]/90 backdrop-blur-xl rounded-[2.5rem] p-8 flex flex-col items-center relative overflow-hidden flex-grow border border-white/5 shadow-2xl transition-transform duration-300 hover:-translate-y-2">
 
                                 {/* Glow Effect */}
+                                {/* Glow Effect */}
                                 <div className={`absolute -top-20 -right-20 w-40 h-40 bg-gradient-to-br ${pkg.gradient} blur-[60px] opacity-20 group-hover:opacity-40 transition-opacity duration-500`} />
-
-
 
                                 {/* Rigid Spacer at Top */}
                                 <div style={{ height: '40px' }} className="w-full shrink-0" />
@@ -193,7 +192,7 @@ export default function PricingPage() {
                                     <Link
                                         href={`/contact?package=${pkg.id}`}
                                         className={`
-                                            block w-full py-4 rounded-xl font-semibold text-center transition-all duration-300 transform hover:scale-[1.02]
+                                            block w-full py-4 rounded-full font-semibold text-center transition-all duration-300 transform hover:scale-[1.02]
                                             ${pkg.popular
                                                 ? 'bg-gradient-to-r from-purple-600 to-pink-600 text-white hover:shadow-lg hover:shadow-purple-500/25'
                                                 : 'bg-white/5 border border-white/10 text-white hover:bg-white/10'

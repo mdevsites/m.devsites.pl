@@ -45,7 +45,7 @@ export default function USPSection() {
     };
 
     return (
-        <section className="section-spacing !pt-12 overflow-hidden">
+        <section className="section-spacing !pt-12 overflow-hidden relative z-10">
             <div className="container-custom flex flex-col gap-40">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}

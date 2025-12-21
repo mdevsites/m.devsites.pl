@@ -2,10 +2,22 @@
 
 import { motion } from 'framer-motion';
 import { PROCESS_STEPS } from '@/lib/constants';
+import { MessageSquare, FileText, Palette, Code2, Headset } from 'lucide-react';
+
+const getIcon = (name: string) => {
+    switch (name) {
+        case 'MessageSquare': return <MessageSquare className="w-8 h-8 md:w-10 md:h-10 text-cyan-400" />;
+        case 'FileText': return <FileText className="w-8 h-8 md:w-10 md:h-10 text-blue-400" />;
+        case 'Palette': return <Palette className="w-8 h-8 md:w-10 md:h-10 text-purple-400" />;
+        case 'Code2': return <Code2 className="w-8 h-8 md:w-10 md:h-10 text-fuchsia-400" />;
+        case 'Headset': return <Headset className="w-8 h-8 md:w-10 md:h-10 text-pink-400" />;
+        default: return null;
+    }
+};
 
 export default function ProcessTimeline() {
     return (
-        <section className="section-spacing !pt-12">
+        <section className="section-spacing !pt-12 relative z-10">
             <div className="container-custom">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
@@ -39,22 +51,22 @@ export default function ProcessTimeline() {
                                     className="relative pt-12"
                                 >
                                     {/* Content Card with Floating Badge */}
-                                    <div className="card-light p-6 pt-16 text-center min-h-[220px] flex flex-col justify-center relative overflow-visible group hover:-translate-y-2 transition-all duration-300">
+                                    <div className="relative p-6 pt-16 text-center min-h-[220px] flex flex-col justify-center overflow-visible group hover:-translate-y-2 transition-all duration-300 bg-white rounded-2xl shadow-xl hover:shadow-2xl">
                                         {/* Floating Badge Icon */}
-                                        <div className="absolute -top-10 left-1/2 -translate-x-1/2 w-20 h-20 rounded-full bg-white shadow-xl flex items-center justify-center text-4xl border-4 border-purple-50 z-20">
-                                            {step.icon}
+                                        <div className="absolute -top-10 left-1/2 -translate-x-1/2 w-20 h-20 rounded-full bg-black text-white shadow-xl flex items-center justify-center text-4xl border-4 border-white z-20">
+                                            {getIcon(step.icon)}
                                         </div>
 
                                         {/* Giant Background Number */}
-                                        <div className="absolute right-6 bottom-0 text-8xl font-black text-gray-300 opacity-40 z-0 scale-110 group-hover:scale-100 transition-transform duration-500 origin-bottom-right select-none tracking-widest">
+                                        <div className="absolute right-6 bottom-0 text-8xl font-black text-black/5 opacity-100 z-0 scale-110 group-hover:scale-100 transition-transform duration-500 origin-bottom-right select-none tracking-widest">
                                             {step.number}
                                         </div>
 
                                         <div className="relative z-10">
-                                            <h3 className="text-lg font-semibold text-gray-900 mb-3 group-hover:text-purple-600 transition-colors">
+                                            <h3 className="text-lg font-bold text-gray-900 mb-3 group-hover:text-purple-600 transition-colors">
                                                 {step.title}
                                             </h3>
-                                            <p className="text-sm text-gray-600 leading-relaxed group-hover:text-gray-900 transition-colors">
+                                            <p className="text-sm text-gray-600 leading-relaxed font-medium">
                                                 {step.description}
                                             </p>
                                         </div>
@@ -82,8 +94,8 @@ export default function ProcessTimeline() {
                                     className="relative flex items-start gap-6"
                                 >
                                     {/* Circle Node */}
-                                    <div className="flex-shrink-0 w-16 h-16 rounded-full gradient-button flex items-center justify-center text-2xl shadow-glow-pink z-10 bg-purple-ultra-dark">
-                                        {step.icon}
+                                    <div className="flex-shrink-0 w-16 h-16 rounded-full flex items-center justify-center bg-black border-2 border-white z-10 shadow-xl">
+                                        {getIcon(step.icon)}
                                     </div>
 
                                     {/* Content */}

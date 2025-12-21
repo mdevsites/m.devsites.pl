@@ -20,7 +20,7 @@ export default function NotFound() {
 
                     <div className="glass-card -mt-16 relative z-20 bg-white/5 backdrop-blur-xl border border-white/10 p-8 rounded-3xl shadow-2xl">
                         <h2 className="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-400 mb-4">
-                            Zgubiliśmy się...
+                            Ups... Strona nie została znaleziona.
                         </h2>
                         <p className="text-gray-400 mb-8 leading-relaxed">
                             Strona, której szukasz, nie istnieje lub została przeniesiona.

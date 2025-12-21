@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import { motion } from 'framer-motion';
+import { ArrowRightIcon } from '@heroicons/react/24/solid';
 
 interface CTASectionProps {
     title?: string;
@@ -11,11 +12,11 @@ interface CTASectionProps {
 
 export default function CTASection({
     title = "Gotowy na nową stronę internetową?",
-    description = "Skontaktuj się już dziś i otrzymaj bezpłatną wycenę. Wspólnie stworzymy coś wyjątkowego dla Twojego biznesu.",
+    description = "Skontaktuj się już dziś i otrzymaj bezpłatną wycenę. Stworzę dla Ciebie coś wyjątkowego.",
     buttonText = "Wyślij zapytanie"
 }: CTASectionProps) {
     return (
-        <section className="section-spacing relative overflow-hidden !pt-12">
+        <section className="section-spacing relative overflow-hidden !pt-12 z-10">
             <div className="container-custom relative z-10">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
@@ -33,9 +34,10 @@ export default function CTASection({
 
                     <Link
                         href="/contact"
-                        className="btn-glass text-lg px-10 py-5 inline-block hover:scale-105 transition-transform duration-300"
+                        className="group inline-flex items-center gap-3 px-8 py-4 rounded-full text-white font-medium text-lg transition-all duration-300 hover:bg-white/5"
                     >
-                        {buttonText}
+                        <span>{buttonText}</span>
+                        <ArrowRightIcon className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                     </Link>
                 </motion.div>
             </div>

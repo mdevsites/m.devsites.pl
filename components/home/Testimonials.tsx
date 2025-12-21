@@ -40,7 +40,7 @@ export default function Testimonials() {
     const visibleIndices = getVisibleTestimonials();
 
     return (
-        <section className="section-spacing !pt-12 overflow-hidden">
+        <section className="section-spacing !pt-12 overflow-hidden relative z-10">
             <div className="container-custom flex flex-col items-center">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
@@ -108,19 +108,11 @@ export default function Testimonials() {
                                 >
                                     {/* Card */}
                                     <div
-                                        className="relative rounded-3xl p-10 md:p-12 shadow-2xl overflow-hidden flex flex-col items-center justify-center bg-white/5 backdrop-blur-md border border-white/10"
+                                        className="relative rounded-3xl p-10 md:p-12 shadow-2xl overflow-hidden flex flex-col items-center justify-center bg-white border border-gray-100"
                                         style={{
                                             minHeight: '350px',
                                         }}
                                     >
-                                        {/* Glossy overlay */}
-                                        <div
-                                            className="absolute inset-0 opacity-30"
-                                            style={{
-                                                background: 'linear-gradient(135deg, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0) 60%)',
-                                            }}
-                                        />
-
                                         {/* Content - centered vertically and horizontally */}
                                         <div className="relative z-10 flex flex-col items-center text-center">
                                             {/* Avatar */}
@@ -135,7 +127,7 @@ export default function Testimonials() {
                                                 }}
                                             >
                                                 <div
-                                                    className="w-20 h-20 rounded-full flex items-center justify-center text-white font-bold text-2xl border-4 border-white shadow-xl"
+                                                    className="w-20 h-20 rounded-full flex items-center justify-center text-white font-bold text-2xl border-4 border-gray-100 shadow-xl"
                                                     style={{
                                                         background: 'linear-gradient(135deg, #7C3AED 0%, #EC4899 100%)',
                                                     }}
@@ -145,16 +137,16 @@ export default function Testimonials() {
                                             </motion.div>
 
                                             {/* Quote */}
-                                            <blockquote className="text-lg md:text-xl text-white leading-relaxed mb-8 italic font-medium">
+                                            <blockquote className="text-lg md:text-xl text-gray-900 leading-relaxed mb-8 italic font-medium">
                                                 "{testimonial.quote}"
                                             </blockquote>
 
                                             {/* Author Info */}
                                             <div className="text-center mb-6">
-                                                <p className="text-xl font-bold text-white mb-1">
+                                                <p className="text-xl font-bold text-gray-900 mb-1">
                                                     {testimonial.author}
                                                 </p>
-                                                <p className="text-base text-white/90">
+                                                <p className="text-base text-gray-600">
                                                     {testimonial.position} • {testimonial.company}
                                                 </p>
                                             </div>

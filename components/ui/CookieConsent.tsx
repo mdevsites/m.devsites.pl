@@ -38,7 +38,7 @@ export default function CookieConsent() {
                                 🍪 Ciasteczka?
                             </h3>
                             <p className="text-gray-300 text-sm leading-relaxed">
-                                Używamy plików cookies, aby analizować ruch na stronie i poprawiać Twoje doświadczenia.
+                                Używam plików cookies, aby analizować ruch na stronie i poprawiać Twoje doświadczenia.
                                 Więcej informacji znajdziesz w{' '}
                                 <Link href="/privacy-policy" className="text-purple-400 hover:text-purple-300 underline underline-offset-2 transition-colors">
                                     Polityce Prywatności

@@ -15,11 +15,18 @@ export default function Home() {
   return (
     <>
       <BackgroundEffects />
-      <Hero />
-      <USPSection />
-      <ProcessTimeline />
-      <Testimonials />
-      <CTASection />
+      {/* Hero Section - with tlo6.png background */}
+      <div className="gradient-hero">
+        <Hero />
+      </div>
+
+      {/* Other Sections - with dark abstract background */}
+      <div className="dark-abstract-bg">
+        <USPSection />
+        <ProcessTimeline />
+        <Testimonials />
+        <CTASection />
+      </div>
     </>
   );
 }

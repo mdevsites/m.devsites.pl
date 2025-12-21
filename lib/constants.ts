@@ -31,7 +31,7 @@ export const USP_ITEMS = [
   {
     iconName: 'LuZap',
     title: 'Szybka realizacja',
-    description: 'Projekty w 2-4 tygodnie',
+    description: 'Projekty w 1-2 tygodnie',
     color: 'from-yellow-400 to-orange-500',
     span: 1,
   },
@@ -71,31 +71,31 @@ export const PROCESS_STEPS = [
     number: '01',
     title: 'Bezpłatna konsultacja',
     description: 'Rozmowa o potrzebach, analiza wymagań, wycena i propozycja',
-    icon: '💬',
+    icon: 'MessageSquare',
   },
   {
     number: '02',
     title: 'Przygotowanie oferty',
     description: 'Ustalenie zakresu prac i harmonogramu projektu',
-    icon: '📄',
+    icon: 'FileText',
   },
   {
     number: '03',
     title: 'Projektowanie',
     description: 'Mockupy, wireframes i akceptacja designu',
-    icon: '🎨',
+    icon: 'Palette',
   },
   {
     number: '04',
     title: 'Wdrożenie',
     description: 'Kodowanie strony, testy i poprawki',
-    icon: '💻',
+    icon: 'Code2',
   },
   {
     number: '05',
     title: 'Wsparcie',
     description: 'Szkolenie z obsługi i pomoc techniczna',
-    icon: '🚀',
+    icon: 'Headset',
   },
 ];
 
