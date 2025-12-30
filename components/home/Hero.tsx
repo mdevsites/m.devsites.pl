@@ -15,7 +15,7 @@ export default function Hero() {
     };
 
     return (
-        <section className="relative h-screen w-full overflow-hidden flex items-center justify-center">
+        <section className="relative min-h-screen w-full overflow-hidden flex items-center justify-center pt-32 md:pt-0">
 
             {/* Gradient Overlay - Smooth transition to next section */}
             <div className="absolute inset-x-0 bottom-0 h-[700px] bg-gradient-to-b from-transparent via-black/20 via-40% via-black/80 via-80% to-black pointer-events-none z-[5]" />

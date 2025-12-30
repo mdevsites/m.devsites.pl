@@ -96,7 +96,7 @@ export default function PricingPage() {
             <AuroraBackground />
 
             {/* Spacer for Navbar */}
-            <div className="h-40 w-full relative z-10" />
+            <div className="h-32 md:h-48 w-full relative z-10" />
 
             {/* Particles Effect - Removed */}
             {/* <BackgroundEffects /> */}

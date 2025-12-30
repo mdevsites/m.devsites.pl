@@ -363,7 +363,7 @@ export default function ContactPage() {
             <AuroraBackground />
 
             {/* Spacer for Navbar */}
-            <div className="h-32 md:h-40 w-full relative z-10" />
+            <div className="h-32 md:h-48 w-full relative z-10" />
 
             <Suspense fallback={<div className="text-white text-center pt-20">Ładowanie formularza...</div>}>
                 <ContactForm />
