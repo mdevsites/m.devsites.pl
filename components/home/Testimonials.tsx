@@ -88,7 +88,7 @@ export default function Testimonials() {
                             return (
                                 <motion.div
                                     key={testimonialIndex}
-                                    className="absolute w-full md:w-[600px] cursor-pointer"
+                                    className={`absolute w-full md:w-[600px] ${!isCenter ? 'cursor-pointer' : ''}`}
                                     initial={false}
                                     animate={{
                                         scale: isCenter ? 1 : 0.85,
