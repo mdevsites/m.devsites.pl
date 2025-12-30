@@ -3,20 +3,24 @@
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { ArrowRightIcon } from '@heroicons/react/24/outline';
-import { Logo } from '../ui/Logo';
+
 import { TypeAnimation } from 'react-type-animation';
 
 export default function Hero() {
+    const handleScroll = () => {
+        const nextSection = document.getElementById('usp-section');
+        if (nextSection) {
+            nextSection.scrollIntoView({ behavior: 'smooth' });
+        }
+    };
+
     return (
         <section className="relative h-screen w-full overflow-hidden flex items-center justify-center">
 
             {/* Gradient Overlay - Smooth transition to next section */}
             <div className="absolute inset-x-0 bottom-0 h-[700px] bg-gradient-to-b from-transparent via-black/20 via-40% via-black/80 via-80% to-black pointer-events-none z-[5]" />
 
-            {/* LOGO - Fixed Top Left */}
-            <div className="fixed top-8 left-8 z-50">
-                <Logo />
-            </div>
+
 
             {/* MAIN GLASSMORPHIC CARD */}
             <motion.div
@@ -146,7 +150,8 @@ export default function Hero() {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.8, delay: 2 }}
-                className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 pointer-events-none"
+                onClick={handleScroll}
+                className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 cursor-pointer p-4 hover:opacity-80 transition-opacity"
             >
 
                 <motion.div

@@ -45,7 +45,7 @@ export default function USPSection() {
     };
 
     return (
-        <section className="section-spacing !pt-12 overflow-hidden relative z-10">
+        <section id="usp-section" className="section-spacing !pt-12 overflow-hidden relative z-10">
             <div className="container-custom flex flex-col gap-40">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
@@ -89,7 +89,7 @@ export default function USPSection() {
                                         ease: "easeOut"
                                     }
                                 }}
-                                className="relative group cursor-pointer"
+                                className="relative group cursor-default"
                                 style={{
                                     transformStyle: 'preserve-3d',
                                     transform: `rotate(${rotation}deg)`,
