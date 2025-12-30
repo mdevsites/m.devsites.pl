@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, useInView } from "framer-motion";
+import { motion, useInView, Variants } from "framer-motion";
 import { useRef, useState } from "react";
 
 interface TextRevealProps {
@@ -44,7 +44,7 @@ export default function TextReveal({ children, className = "", delay = 0, durati
 export function MultiLineReveal({ children, className = "", delay = 0 }: { children: string; className?: string; delay?: number }) {
     const lines = children.split('\n');
 
-    const container = {
+    const container: Variants = {
         hidden: { opacity: 0 },
         visible: {
             opacity: 1,
@@ -55,7 +55,7 @@ export function MultiLineReveal({ children, className = "", delay = 0 }: { child
         }
     };
 
-    const childVariant = {
+    const childVariant: Variants = {
         hidden: { opacity: 0, filter: "blur(12px)" },
         visible: {
             opacity: 1,
