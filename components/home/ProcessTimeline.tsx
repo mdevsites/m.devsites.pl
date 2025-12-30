@@ -50,27 +50,51 @@ export default function ProcessTimeline() {
                                     transition={{ duration: 0.5, delay: index * 0.1 }}
                                     className="relative pt-12"
                                 >
-                                    {/* Content Card with Floating Badge */}
-                                    <div className="relative p-6 pt-16 text-center min-h-[220px] flex flex-col justify-center overflow-visible group hover:-translate-y-2 transition-all duration-300 bg-white rounded-2xl shadow-xl hover:shadow-2xl">
+                                    {/* Gradient Background Card */}
+                                    <div
+                                        className="relative p-6 pt-16 text-center min-h-[220px] flex flex-col justify-center overflow-visible group hover:-translate-y-2 transition-all duration-300 rounded-2xl shadow-2xl"
+                                        style={{
+                                            background: 'linear-gradient(135deg, #1e40af 0%, #3b82f6 50%, #60a5fa 100%)',
+                                            backgroundSize: '200% 200%',
+                                            animation: 'gradientShift 8s ease infinite',
+                                        }}
+                                    >
+                                        {/* Overlay for depth on hover */}
+                                        <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+
                                         {/* Floating Badge Icon */}
-                                        <div className="absolute -top-10 left-1/2 -translate-x-1/2 w-20 h-20 rounded-full bg-black text-white shadow-xl flex items-center justify-center text-4xl border-4 border-white z-20">
+                                        <div
+                                            className="absolute -top-10 left-1/2 -translate-x-1/2 w-20 h-20 rounded-full bg-white text-purple-600 shadow-2xl flex items-center justify-center text-4xl border-4 border-white z-20 group-hover:scale-110 transition-transform duration-300"
+                                            style={{
+                                                boxShadow: '0 10px 40px rgba(0,0,0,0.3)'
+                                            }}
+                                        >
                                             {getIcon(step.icon)}
                                         </div>
 
                                         {/* Giant Background Number */}
-                                        <div className="absolute right-6 bottom-0 text-8xl font-black text-black/5 opacity-100 z-0 scale-110 group-hover:scale-100 transition-transform duration-500 origin-bottom-right select-none tracking-widest">
+                                        <div className="absolute right-6 bottom-0 text-8xl font-black text-white/20 opacity-100 z-0 scale-110 group-hover:scale-100 transition-transform duration-500 origin-bottom-right select-none tracking-widest">
                                             {step.number}
                                         </div>
 
                                         <div className="relative z-10">
-                                            <h3 className="text-lg font-bold text-gray-900 mb-3 group-hover:text-purple-600 transition-colors">
+                                            <h3 className="text-lg font-bold text-white mb-3 drop-shadow-lg">
                                                 {step.title}
                                             </h3>
-                                            <p className="text-sm text-gray-600 leading-relaxed font-medium">
+                                            <p className="text-sm text-white/95 leading-relaxed font-medium drop-shadow">
                                                 {step.description}
                                             </p>
                                         </div>
                                     </div>
+
+                                    {/* Keyframes for gradient animation */}
+                                    <style jsx>{`
+                                        @keyframes gradientShift {
+                                            0% { background-position: 0% 50%; }
+                                            50% { background-position: 100% 50%; }
+                                            100% { background-position: 0% 50%; }
+                                        }
+                                    `}</style>
                                 </motion.div>
                             ))}
                         </div>

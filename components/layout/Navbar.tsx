@@ -47,18 +47,31 @@ export default function Navbar() {
                 <div style={{ gap: 'var(--spacing-sm)' }} className="hidden md:flex items-center">
                     {NAV_LINKS.map((link) => {
                         const Icon = getIconForLink(link.href);
+                        const isActive = pathname === link.href;
                         return (
                             <Link
                                 key={link.href}
                                 href={link.href}
                                 style={{ paddingInline: 'var(--spacing-sm)', paddingBlock: 'var(--spacing-xs)', gap: 'var(--spacing-xs)' }}
-                                className={`group relative flex flex-col items-center justify-center rounded-2xl min-w-[90px] transition-all duration-300 hover:-translate-y-1 ${pathname === link.href
-                                    ? 'text-white bg-white/10 shadow-[0_0_60px_rgba(255,255,255,0.3)]'
-                                    : 'text-white/70 hover:text-white hover:bg-white/5'
+                                className={`group relative flex flex-col items-center justify-center rounded-2xl min-w-[90px] transition-all duration-300 hover:-translate-y-1 ${isActive
+                                        ? 'text-white'
+                                        : 'text-white/70 hover:text-white hover:bg-white/5'
                                     }`}
                             >
-                                <Icon className="w-6 h-6 group-hover:scale-110 transition-transform" />
-                                <span className="text-[10px] font-bold uppercase tracking-wide">{link.name}</span>
+                                {/* Animated Background Indicator */}
+                                {isActive && (
+                                    <motion.div
+                                        layoutId="activeTabBackground"
+                                        className="absolute inset-0 bg-white/10 rounded-2xl shadow-[0_0_60px_rgba(255,255,255,0.3)]"
+                                        transition={{
+                                            type: "spring",
+                                            stiffness: 350,
+                                            damping: 30
+                                        }}
+                                    />
+                                )}
+                                <Icon className="w-6 h-6 group-hover:scale-110 transition-transform relative z-10" />
+                                <span className="text-[10px] font-bold uppercase tracking-wide relative z-10">{link.name}</span>
                             </Link>
                         );
                     })}

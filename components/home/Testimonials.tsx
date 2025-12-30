@@ -106,13 +106,19 @@ export default function Testimonials() {
                                     }}
                                     whileHover={!isCenter ? { scale: 0.9 } : {}}
                                 >
-                                    {/* Card */}
+                                    {/* Gradient Background Card */}
                                     <div
-                                        className="relative rounded-3xl p-10 md:p-12 shadow-2xl overflow-hidden flex flex-col items-center justify-center bg-white border border-gray-100"
+                                        className="relative rounded-3xl p-10 md:p-12 overflow-hidden flex flex-col items-center justify-center shadow-2xl"
                                         style={{
                                             minHeight: '350px',
+                                            background: 'linear-gradient(135deg, #4f46e5 0%, #7c3aed 50%, #06b6d4 100%)',
+                                            backgroundSize: '200% 200%',
+                                            animation: isCenter ? 'gradientShift 8s ease infinite' : 'none',
                                         }}
                                     >
+                                        {/* Subtle overlay for depth */}
+                                        <div className="absolute inset-0 bg-gradient-to-br from-white/10 via-transparent to-black/10" />
+
                                         {/* Content - centered vertically and horizontally */}
                                         <div className="relative z-10 flex flex-col items-center text-center">
                                             {/* Avatar */}
@@ -127,44 +133,34 @@ export default function Testimonials() {
                                                 }}
                                             >
                                                 <div
-                                                    className="w-20 h-20 rounded-full flex items-center justify-center text-white font-bold text-2xl border-4 border-gray-100 shadow-xl"
-                                                    style={{
-                                                        background: 'linear-gradient(135deg, #7C3AED 0%, #EC4899 100%)',
-                                                    }}
+                                                    className="w-20 h-20 rounded-full flex items-center justify-center text-purple-600 font-bold text-2xl border-4 border-white shadow-2xl bg-white"
                                                 >
                                                     {testimonial.author.split(' ').map(n => n[0]).join('')}
                                                 </div>
                                             </motion.div>
 
                                             {/* Quote */}
-                                            <blockquote className="text-lg md:text-xl text-gray-900 leading-relaxed mb-8 italic font-medium">
+                                            <blockquote className="text-lg md:text-xl text-white leading-relaxed mb-8 italic font-medium drop-shadow-lg">
                                                 "{testimonial.quote}"
                                             </blockquote>
 
-                                            {/* Author Info */}
-                                            <div className="text-center mb-6">
-                                                <p className="text-xl font-bold text-gray-900 mb-1">
+                                            {/* Author Info - Name only */}
+                                            <div className="text-center">
+                                                <p className="text-xl font-bold text-white drop-shadow">
                                                     {testimonial.author}
                                                 </p>
-                                                <p className="text-base text-gray-600">
-                                                    {testimonial.position} • {testimonial.company}
-                                                </p>
-                                            </div>
-
-                                            {/* Rating Stars */}
-                                            <div className="flex gap-1">
-                                                {[...Array(testimonial.rating)].map((_, i) => (
-                                                    <svg
-                                                        key={i}
-                                                        className="w-5 h-5 text-yellow-300 fill-current"
-                                                        viewBox="0 0 20 20"
-                                                    >
-                                                        <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z" />
-                                                    </svg>
-                                                ))}
                                             </div>
                                         </div>
                                     </div>
+
+                                    {/* Keyframes for gradient animation */}
+                                    <style jsx>{`
+                                        @keyframes gradientShift {
+                                            0% { background-position: 0% 50%; }
+                                            50% { background-position: 100% 50%; }
+                                            100% { background-position: 0% 50%; }
+                                        }
+                                    `}</style>
                                 </motion.div>
                             );
                         })}

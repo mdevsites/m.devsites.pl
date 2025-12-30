@@ -110,7 +110,7 @@ export const TESTIMONIALS = [
     id: 1,
     quote:
       'Profesjonalizm i szybka realizacja projektów! Nasza strona przekroczyła wszystkie oczekiwania.',
-    author: 'Jan Kowalski',
+    author: 'Krzysztof Mazur',
     position: 'CEO',
     company: 'TechStartup',
     rating: 5,

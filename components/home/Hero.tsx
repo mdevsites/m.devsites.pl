@@ -33,17 +33,18 @@ export default function Hero() {
                     {/* Background Blobs - Heavy blur hidden on mobile */}
                     <div className="absolute inset-0 z-[-1] hidden md:block md:blur-[80px]"
                         style={{
-                            background: 'radial-gradient(circle at center, rgba(255, 255, 255, 0.18) 0%, rgba(255, 255, 255, 0.08) 35%, transparent 75%)',
+                            background: 'radial-gradient(circle at center, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.2) 35%, transparent 75%)',
                             transform: 'scale(1.5)',
                         }}
                     />
-                    {/* Secondary Purple Spot - Hidden on mobile */}
+                    {/* Secondary Black Spot - Hidden on mobile */}
                     <div className="absolute inset-0 z-[-2] translate-x-[20%] translate-y-[20%] hidden md:block blur-[100px]"
                         style={{
-                            background: 'radial-gradient(circle at center, rgba(168, 85, 247, 0.12) 0%, rgba(168, 85, 247, 0.04) 40%, transparent 70%)',
+                            background: 'radial-gradient(circle at center, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.15) 40%, transparent 70%)',
                             transform: 'scale(1.4)',
                         }}
                     />
+
 
                     {/* Internal wrapper - Responsive spacing */}
                     <div className="py-12 md:p-20 relative">
@@ -58,8 +59,19 @@ export default function Hero() {
                             >
                                 Tworzę strony internetowe,<br />
                                 które są{' '}
-                                {/* Mobile: New line + Solid Color. Desktop: Inline + Gradient */}
-                                <span className="block md:inline text-mesh-1 md:text-transparent md:bg-clip-text md:bg-gradient-to-r md:from-mesh-1 md:via-purple-400 md:to-mesh-2 mt-2 md:mt-0">
+                                {/* Neon Effect - Enhanced glow */}
+                                <span
+                                    className="block md:inline mt-2 md:mt-0 font-bold"
+                                    style={{
+                                        color: '#FFFFFF',
+                                        textShadow: `
+                                            0 0 10px rgba(168, 85, 247, 0.8),
+                                            0 0 20px rgba(168, 85, 247, 0.7),
+                                            0 0 40px rgba(168, 85, 247, 0.5),
+                                            0 0 80px rgba(168, 85, 247, 0.3)
+                                        `
+                                    }}
+                                >
                                     <TypeAnimation
                                         sequence={[
                                             'szybkie',
