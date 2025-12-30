@@ -7,8 +7,10 @@ import {
     GlobeAltIcon,
     RocketLaunchIcon,
     XMarkIcon,
+    ArrowRightIcon,
 } from '@heroicons/react/24/outline';
 import CTASection from '@/components/home/CTASection';
+
 import dynamic from 'next/dynamic';
 
 const AuroraBackground = dynamic(() => import('@/components/ui/AuroraBackground'), {
@@ -25,57 +27,63 @@ const PRICING_PACKAGES = [
     {
         id: 'start',
         name: 'PAKIET START',
-        price: '1 199',
-        description: 'Idealny, jeśli potrzebujesz estetycznej strony wizytówki, która dobrze wygląda i działa na każdym urządzeniu.',
+        price: '1 399',
+        description: 'Idealny dla osób, które potrzebują prostej i estetycznej strony wizytówki.',
         features: [
-            'Projekt od zera',
-            '1 strona (scroll)',
+            '1 strona typu one-page (scrollowana)',
             'Do 4 sekcji',
+            'Indywidualny projekt graficzny',
             'Wersja mobilna',
-            'Formularz',
-            '1 runda poprawek'
-        ],
-        excluded: [
-            'Brak animacji',
-            'Brak SEO rozbudowanego'
+            'Formularz kontaktowy',
+            '1 etap korekt projektu'
         ],
         icon: RocketLaunchIcon,
         popular: false,
         gradient: 'from-blue-500 to-cyan-400',
+        highlightColor: 'hover:bg-cyan-400 border-cyan-400/50 hover:border-cyan-400',
+        textColor: 'text-cyan-400',
     },
     {
         id: 'business',
         name: 'PAKIET BIZNES',
-        price: '2 299',
-        description: 'Dla firm, które chcą profesjonalnej strony firmowej, budującej zaufanie i wspierającej sprzedaż.',
+        price: '2 699',
+        description: 'Dla firm, które chcą profesjonalnej strony firmowej.',
         features: [
             'Do 4 podstron',
             'Indywidualny layout',
             'Lekkie animacje',
-            'SEO on-page',
+            'Wersja mobilna',
+            'Formularz kontaktowy',
+            'Podstawowe SEO',
             'Google Analytics',
-            '2 rundy poprawek'
+            '2 etapy korekt projektu'
         ],
         icon: GlobeAltIcon,
         popular: true,
         gradient: 'from-purple-600 to-pink-500',
+        highlightColor: 'hover:bg-pink-500 border-pink-500/50 hover:border-pink-500',
+        textColor: 'text-pink-500',
     },
     {
         id: 'pro',
         name: 'PAKIET PRO',
         price: '3 999',
-        description: 'Dla marek, które chcą wyróżnić się wizerunkowo i wyglądać jak duża firma.',
+        description: 'Dla marek, które chcą się wyróżnić wizualnie.',
         features: [
             'Do 6 podstron',
-            'Dopracowany UX',
+            'Dopracowany układ UX',
             'Animacje premium',
+            'Wersja mobilna',
+            'Formularze + CTA',
+            'Podstawowe SEO',
             'Optymalizacja szybkości',
-            'CTA i konwersja',
-            '3 rundy poprawek'
+            '3 etapy korekt projektu'
         ],
         icon: CurrencyDollarIcon,
         popular: false,
         gradient: 'from-emerald-500 to-teal-400',
+        highlightColor: 'hover:bg-teal-400 border-teal-400/50 hover:border-teal-400',
+        textColor: 'text-teal-400',
     }
 ];
 
@@ -147,12 +155,12 @@ export default function PricingPage() {
                                     <div style={{ height: '40px' }} className="w-full shrink-0" />
 
                                     <h3 className="text-2xl font-bold mb-4 text-center w-full bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-400">{pkg.name}</h3>
-                                    {/* Description: Full width, no extra padding */}
-                                    <p className="text-gray-400 text-sm leading-relaxed text-center max-w-[85%] mx-auto">{pkg.description}</p>
+                                    {/* Description: Full width, no extra padding, fixed min-height for alignment */}
+                                    <p className="text-gray-400 text-sm leading-relaxed text-center max-w-[85%] mx-auto min-h-[48px] flex items-center justify-center">{pkg.description}</p>
                                 </div>
 
                                 {/* Rigid Spacer */}
-                                <div style={{ height: '40px' }} className="w-full shrink-0" />
+                                <div style={{ height: '20px' }} className="w-full shrink-0" />
 
                                 {/* Price - Centered */}
                                 <div className="w-full flex flex-col items-center justify-center">
@@ -186,22 +194,26 @@ export default function PricingPage() {
                                     </ul>
                                 </div>
 
+                                {/* Rigid Spacer between Options and Button */}
+                                <div style={{ height: '40px' }} className="w-full shrink-0" />
 
                                 {/* Button */}
-                                <div className="w-full mt-auto">
+                                <div className="w-full mt-auto flex justify-center">
                                     <Link
                                         href={`/contact?package=${pkg.id}`}
-                                        className={`
-                                            block w-full py-4 rounded-full font-semibold text-center transition-all duration-300 transform hover:scale-[1.02]
-                                            ${pkg.popular
-                                                ? 'bg-gradient-to-r from-purple-600 to-pink-600 text-white hover:shadow-lg hover:shadow-purple-500/25'
-                                                : 'bg-white/5 border border-white/10 text-white hover:bg-white/10'
-                                            }
-                                        `}
+                                        className={`group/btn relative w-[85%] mx-auto block bg-transparent border-2 py-6 rounded-full transition-all duration-300 hover:scale-[1.02] hover:shadow-xl hover:shadow-white/10 hover:text-white ${pkg.highlightColor} ${pkg.textColor}`}
                                     >
-                                        Wybierz Pakiet
+                                        <div className="flex items-center justify-center gap-3">
+                                            <span className="font-bold text-lg tracking-wide transition-colors">
+                                                WYBIERZ PAKIET
+                                            </span>
+                                            <ArrowRightIcon className="w-6 h-6 -rotate-45 transition-transform duration-300 group-hover/btn:rotate-0 group-hover/btn:translate-x-1" />
+                                        </div>
                                     </Link>
                                 </div>
+
+                                {/* Rigid Spacer at Bottom */}
+                                <div style={{ height: '50px' }} className="w-full shrink-0" />
                             </div>
                         </div>
                     ))}
@@ -210,11 +222,15 @@ export default function PricingPage() {
                 {/* Rigid Spacer */}
                 <div style={{ height: '100px' }} className="w-full shrink-0" />
 
-                <CTASection
-                    title="Nie znalazłeś idealnego pakietu?"
-                    description="Każdy biznes jest inny. Skontaktuj się ze mną, a przygotuję dla Ciebie indywidualną wycenę."
-                    buttonText="Zapytaj o wycenę"
-                />
+
+
+                <div className="relative z-10 w-full flex justify-center">
+                    <CTASection
+                        title="Nie znalazłeś idealnego pakietu?"
+                        description="Każdy biznes jest inny. Skontaktuj się ze mną, a przygotuję dla Ciebie indywidualną wycenę."
+                        buttonText="Zapytaj o wycenę"
+                    />
+                </div>
 
 
             </div>

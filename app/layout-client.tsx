@@ -22,7 +22,11 @@ export default function LayoutClient({ children }: { children: React.ReactNode }
             )}
             {!hideNav && !isDemo && <Navbar />}
             <main>{children}</main>
-            {!hideNav && !isDemo && <Footer />}
+            {!hideNav && !isDemo && (
+                <div className="relative z-50">
+                    <Footer />
+                </div>
+            )}
             {!hideNav && !isDemo && <StickyButtons />}
         </>
     );

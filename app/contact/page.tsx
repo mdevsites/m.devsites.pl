@@ -6,6 +6,7 @@ import { FiMail, FiPhone } from 'react-icons/fi';
 import { ArrowRightIcon } from '@heroicons/react/24/outline';
 import { useSearchParams } from 'next/navigation';
 import dynamic from 'next/dynamic';
+import FAQSection from '@/components/pricing/FAQSection';
 
 const AuroraBackground = dynamic(() => import('@/components/ui/AuroraBackground'), {
     ssr: false,
@@ -82,14 +83,14 @@ function ContactForm() {
     return (
         <>
             <div className="container-custom w-full max-w-7xl relative z-10 px-4 pb-12 mx-auto">
-                <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-start">
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20">
 
                     {/* LEWA KOLUMNA - TEXT & INFO */}
                     <motion.div
                         initial={{ opacity: 0, x: -20 }}
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.6 }}
-                        className="lg:col-span-4 flex flex-col gap-6 pt-8"
+                        className="lg:col-span-4 flex flex-col gap-6 pt-8 h-full"
                     >
                         <div>
                             <h1 className="text-5xl md:text-6xl font-bold mb-6 leading-tight">
@@ -101,26 +102,26 @@ function ContactForm() {
                             </p>
                         </div>
 
-                        <div className="flex flex-col gap-6">
-                            <div className="flex flex-col mt-8">
+                        <div className="flex flex-col gap-6 flex-grow">
+                            <div className="flex flex-col mt-8 flex-grow justify-end gap-6">
                                 {/* Email Row */}
-                                <a href="mailto:m.devkontakt@gmail.com" className="group flex items-center justify-between py-6 border-b border-white/10 hover:border-purple-500/50 transition-all duration-300">
-                                    <div>
+                                <a href="mailto:m.devkontakt@gmail.com" className="group flex items-center justify-between py-6 hover:border-purple-500/50 transition-all duration-300">
+                                    <div className="mb-10">
                                         <h3 className="text-xs font-medium text-gray-400 mb-1 uppercase tracking-wider group-hover:text-purple-300 transition-colors">Napisz do mnie</h3>
                                         <p className="text-lg text-white font-semibold">m.devkontakt@gmail.com</p>
                                     </div>
-                                    <div className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-gray-400 group-hover:bg-purple-500/20 group-hover:text-purple-300 transition-all duration-300">
+                                    <div className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-gray-400 group-hover:bg-purple-500/20 group-hover:text-purple-300 transition-all duration-300 mb-10">
                                         <FiMail className="w-5 h-5" />
                                     </div>
                                 </a>
 
                                 {/* Phone Row */}
-                                <a href="tel:+48691630461" className="group flex items-center justify-between py-6 border-b border-white/10 hover:border-pink-500/50 transition-all duration-300">
-                                    <div>
+                                <a href="tel:+48691630461" className="group flex items-center justify-between py-6 hover:border-pink-500/50 transition-all duration-300">
+                                    <div className="mb-10">
                                         <h3 className="text-xs font-medium text-gray-400 mb-1 uppercase tracking-wider group-hover:text-pink-300 transition-colors">Zadzwoń</h3>
                                         <p className="text-lg text-white font-semibold">+48 691 630 461</p>
                                     </div>
-                                    <div className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-gray-400 group-hover:bg-pink-500/20 group-hover:text-pink-300 transition-all duration-300">
+                                    <div className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-gray-400 group-hover:bg-pink-500/20 group-hover:text-pink-300 transition-all duration-300 mb-10">
                                         <FiPhone className="w-5 h-5" />
                                     </div>
                                 </a>
@@ -307,9 +308,10 @@ function ContactForm() {
 
                         {/* Step 1 */}
                         <div className="relative flex flex-col items-center text-center group">
-                            <div className="w-12 h-12 rounded-full bg-[#050505] border border-purple-500/50 flex items-center justify-center text-purple-400 mb-6 relative z-10 shadow-[0_0_15px_rgba(168,85,247,0.2)] group-hover:scale-110 transition-transform duration-300">
+                            <div className="w-12 h-12 rounded-full bg-[#050505] border border-purple-500/50 flex items-center justify-center text-purple-400 relative z-10 shadow-[0_0_15px_rgba(168,85,247,0.2)] group-hover:scale-110 transition-transform duration-300">
                                 <span className="text-lg font-bold">1</span>
                             </div>
+                            <div className="h-6" />
                             <h5 className="text-white font-medium text-lg mb-2">Analiza</h5>
                             <p className="text-sm text-gray-400 leading-relaxed max-w-[250px] mx-auto">
                                 Analizuję Twoje potrzeby i przygotowuję wstępną koncepcję.
@@ -318,9 +320,10 @@ function ContactForm() {
 
                         {/* Step 2 */}
                         <div className="relative flex flex-col items-center text-center group">
-                            <div className="w-12 h-12 rounded-full bg-[#050505] border border-white/10 flex items-center justify-center text-gray-400 mb-6 relative z-10 group-hover:border-purple-500/50 group-hover:text-purple-400 transition-colors duration-300 group-hover:scale-110 group-hover:shadow-[0_0_15px_rgba(168,85,247,0.2)]">
+                            <div className="w-12 h-12 rounded-full bg-[#050505] border border-white/10 flex items-center justify-center text-gray-400 relative z-10 group-hover:border-purple-500/50 group-hover:text-purple-400 transition-colors duration-300 group-hover:scale-110 group-hover:shadow-[0_0_15px_rgba(168,85,247,0.2)]">
                                 <span className="text-lg font-bold">2</span>
                             </div>
+                            <div className="h-6" />
                             <h5 className="text-white font-medium text-lg mb-2">Konsultacja</h5>
                             <p className="text-sm text-gray-400 leading-relaxed max-w-[250px] mx-auto">
                                 Kontaktuję się w ciągu 24h, aby omówić szczegóły i budżet.
@@ -329,9 +332,10 @@ function ContactForm() {
 
                         {/* Step 3 */}
                         <div className="relative flex flex-col items-center text-center group">
-                            <div className="w-12 h-12 rounded-full bg-[#050505] border border-white/10 flex items-center justify-center text-gray-400 mb-6 relative z-10 group-hover:border-purple-500/50 group-hover:text-purple-400 transition-colors duration-300 group-hover:scale-110 group-hover:shadow-[0_0_15px_rgba(168,85,247,0.2)]">
+                            <div className="w-12 h-12 rounded-full bg-[#050505] border border-white/10 flex items-center justify-center text-gray-400 relative z-10 group-hover:border-purple-500/50 group-hover:text-purple-400 transition-colors duration-300 group-hover:scale-110 group-hover:shadow-[0_0_15px_rgba(168,85,247,0.2)]">
                                 <span className="text-lg font-bold">3</span>
                             </div>
+                            <div className="h-6" />
                             <h5 className="text-white font-medium text-lg mb-2">Realizacja</h5>
                             <p className="text-sm text-gray-400 leading-relaxed max-w-[250px] mx-auto">
                                 Po akceptacji warunków, rozpoczynam pracę nad Twoim projektem.
@@ -341,6 +345,9 @@ function ContactForm() {
                     </div>
                 </motion.div>
             </div>
+
+            <div className="h-24" />
+
         </>
     );
 }
@@ -356,11 +363,21 @@ export default function ContactPage() {
             <AuroraBackground />
 
             {/* Spacer for Navbar */}
-            <div className="h-32 md:h-40 w-full relative z-10 lg:hidden" />
+            <div className="h-32 md:h-40 w-full relative z-10" />
 
             <Suspense fallback={<div className="text-white text-center pt-20">Ładowanie formularza...</div>}>
                 <ContactForm />
             </Suspense>
+
+            {/* SPACER SECTION for FAQ */}
+            <div className="h-24 relative z-10" />
+
+            {/* FAQ Section */}
+            <div className="relative z-10 w-full flex justify-center">
+                <FAQSection />
+            </div>
+
+            <div className="h-32" />
         </main>
     );
 }
