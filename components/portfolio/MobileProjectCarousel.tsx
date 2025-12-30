@@ -34,11 +34,10 @@ export default function MobileProjectCarousel({ onOpenProject }: MobileProjectCa
                             <Image
                                 src={project.imageSrc}
                                 alt={project.title}
-                                width={600}
-                                height={400}
                                 className="w-full h-auto object-cover block"
                                 sizes="(max-width: 640px) 85vw, 600px"
                                 priority={index === 0}
+                                placeholder="blur"
                             />
                             {/* Gradient Overlay at bottom of image for seamless transition */}
                             <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-[#0A0A0A] to-transparent" />

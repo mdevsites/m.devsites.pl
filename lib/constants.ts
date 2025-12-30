@@ -2,6 +2,11 @@
 // CONSTANTS & DATA FOR PORTFOLIO SITE
 // ===================================
 
+import NieruchomosciImg from "@/public/assets/projects/nieruchomosci-demo-v2.png";
+import FotografImg from "@/public/assets/projects/fotograf-demo-main-v2.png";
+import SalonBeautyImg from "@/public/assets/projects/salon-beauty-demo-main-v2.png";
+import MechanikImg from "@/public/assets/projects/mechanik-demo-v2.png";
+
 // Contact Information (Placeholders - to be updated)
 export const CONTACT_INFO = {
   email: 'm.devkontakt@gmail.com',
@@ -233,7 +238,7 @@ export const PORTFOLIO_PROJECTS = [
     fullDescription:
       'Najbardziej zaawansowany projekt w portfolio, demonstrujący możliwości pakietu PRO. Zawiera 5 podstron: Home (z bento grid), Lista ofert z filtracją, Detale nieruchomości, O nas oraz Kontakt. Skupia się na prestiżowym designie (dark/gold) i płynnych animacjach typu reveal.',
     tags: ['Next.js', 'Framer Motion', 'Bento Grid', 'Filtering', 'Luxury Design'],
-    imageSrc: '/assets/projects/nieruchomosci-demo-v2.png',
+    imageSrc: NieruchomosciImg,
     link: '/demos/nieruchomosci',
     client: 'Demo Project',
     timeline: '3 tygodnie',
@@ -254,7 +259,7 @@ export const PORTFOLIO_PROJECTS = [
     fullDescription:
       'Projekt portfolio dla fotografa stworzony w ramach pakietu START. Cechuje się minimalistycznym designem, który nie odciąga uwagi od zdjęć. Wykorzystuje klasyczną typografię Playfair Display oraz nowoczesny układ masonry dla galerii.',
     tags: ['Next.js', 'Tailwind CSS', 'Masonry Grid', 'Minimalism'],
-    imageSrc: '/assets/projects/fotograf-demo-main-v2.png',
+    imageSrc: FotografImg,
     link: '/demos/fotograf',
     client: 'Demo Project',
     timeline: '3 dni',
@@ -275,7 +280,7 @@ export const PORTFOLIO_PROJECTS = [
     fullDescription:
       'Rozbudowany projekt dla salonu beauty realizujący założenia pakietu BIZNES. Zawiera 4 podstrony (Home, Usługi, Galeria, Kontakt), lekkie animacje przy scrollowaniu oraz dedykowany layout graficzny.',
     tags: ['Next.js', 'Framer Motion', 'Tailwind CSS', 'Multi-page'],
-    imageSrc: '/assets/projects/salon-beauty-demo-main-v2.png',
+    imageSrc: SalonBeautyImg,
     link: '/demos/salon-beauty',
     client: 'Demo Project',
     timeline: '2 tygodnie',
@@ -296,7 +301,7 @@ export const PORTFOLIO_PROJECTS = [
     fullDescription:
       'Kompleksowa strona typu one-page dla warsztatu samochodowego. Zawiera hero section z call-to-action, przegląd 6 głównych usług, sekcję "O nas" z zdjęciem zespołu oraz funkcjonalny formularz kontaktowy.',
     tags: ['Next.js', 'Tailwind CSS', 'TypeScript', 'Responsive'],
-    imageSrc: '/assets/projects/mechanik-demo-v2.png',
+    imageSrc: MechanikImg,
     link: '/demos/mechanik',
     client: 'Demo Project',
     timeline: '1 tydzień',
