@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { usePathname, useSearchParams } from 'next/navigation';
 import { useState, useEffect } from 'react';
 import { Bars3Icon, XMarkIcon, HomeIcon, ViewColumnsIcon, CurrencyDollarIcon, EnvelopeIcon } from '@heroicons/react/24/outline';
+import { AnimatePresence, motion } from 'framer-motion';
 import { NAV_LINKS } from '@/lib/constants';
 import { HamburgerIcon } from '../ui/HamburgerIcon';
 
@@ -74,22 +75,52 @@ export default function Navbar() {
             </div>
 
             {/* Mobile Menu Dropdown */}
-            {isMobileMenuOpen && (
-                <div
-                    className="absolute top-20 left-4 right-4 bg-white/[0.02] backdrop-blur-3xl border border-white/10 rounded-[2.5rem] p-6 md:hidden animate-slideUp flex flex-col gap-3 shadow-[0_8px_32px_0_rgba(0,0,0,0.37)]"
-                >
-                    {NAV_LINKS.map((link) => (
-                        <Link
-                            key={link.href}
-                            href={link.href}
-                            onClick={() => setIsMobileMenuOpen(false)}
-                            className="flex items-center justify-center py-4 rounded-2xl text-white text-lg font-bold border border-transparent transition-all active:scale-95"
-                        >
-                            {link.name}
-                        </Link>
-                    ))}
-                </div>
-            )}
+
+            <AnimatePresence>
+                {isMobileMenuOpen && (
+                    <motion.div
+                        initial={{ opacity: 0, y: -20, scale: 0.95 }}
+                        animate={{ opacity: 1, y: 0, scale: 1 }}
+                        exit={{ opacity: 0, y: -20, scale: 0.95 }}
+                        transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
+                        className="absolute top-24 left-4 right-4 bg-white/[0.02] backdrop-blur-3xl border border-white/10 rounded-[2.5rem] p-8 md:hidden flex justify-center shadow-[0_8px_32px_0_rgba(0,0,0,0.37)] overflow-hidden"
+                    >
+                        <div className="flex flex-col items-center gap-6">
+                            {NAV_LINKS.map((link, index) => {
+                                const isActive = pathname === link.href;
+
+                                return (
+                                    <motion.div
+                                        key={link.href}
+                                        initial={{ opacity: 0, y: 20 }}
+                                        animate={{ opacity: 1, y: 0 }}
+                                        transition={{ delay: index * 0.1, duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+                                    >
+                                        <Link
+                                            href={link.href}
+                                            onClick={() => setIsMobileMenuOpen(false)}
+                                            className="relative block group"
+                                        >
+                                            <span className={`text-3xl font-bold tracking-tight transition-all duration-300 ${isActive
+                                                ? 'text-white'
+                                                : 'text-white/40 hover:text-white'
+                                                }`}>
+                                                {link.name}
+                                            </span>
+                                            {isActive && (
+                                                <motion.div
+                                                    layoutId="activeDot"
+                                                    className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-1.5 h-1.5 bg-white rounded-full"
+                                                />
+                                            )}
+                                        </Link>
+                                    </motion.div>
+                                );
+                            })}
+                        </div>
+                    </motion.div>
+                )}
+            </AnimatePresence>
         </nav>
     );
 }
