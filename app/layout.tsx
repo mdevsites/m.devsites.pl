@@ -41,6 +41,11 @@ export const metadata: Metadata = {
     "programista",
     "developer"
   ],
+  icons: {
+    icon: '/icon',
+    shortcut: '/icon',
+    apple: '/icon',
+  },
   authors: [{ name: "M.DEV" }],
   creator: "M.DEV",
   publisher: "M.DEV",
