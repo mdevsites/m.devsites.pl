@@ -54,7 +54,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "pl_PL",
-    url: "https://m.dev",
+    url: "https://www.mdevsites.pl",
     siteName: "M.DEV",
     title: "M.DEV - Tworzenie Profesjonalnych Stron Internetowych",
     description: "Tworzę nowoczesne strony internetowe dla firm. Responsywny design, szybka realizacja, konkurencyjne ceny.",
