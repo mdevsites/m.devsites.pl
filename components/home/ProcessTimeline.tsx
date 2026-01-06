@@ -50,51 +50,35 @@ export default function ProcessTimeline() {
                                     transition={{ duration: 0.5, delay: index * 0.1 }}
                                     className="relative pt-12"
                                 >
-                                    {/* Gradient Background Card */}
+                                    {/* Glass Background Card */}
                                     <div
-                                        className="relative p-6 pt-16 text-center min-h-[220px] flex flex-col justify-center overflow-visible group hover:-translate-y-2 transition-all duration-300 rounded-2xl shadow-2xl"
-                                        style={{
-                                            background: 'linear-gradient(135deg, #1e40af 0%, #3b82f6 50%, #60a5fa 100%)',
-                                            backgroundSize: '200% 200%',
-                                            animation: 'gradientShift 8s ease infinite',
-                                        }}
+                                        className="relative p-6 pt-16 text-center min-h-[260px] flex flex-col items-center justify-center overflow-visible group hover:-translate-y-2 transition-all duration-300 rounded-2xl border border-white/5 bg-white/[0.02] backdrop-blur-sm hover:bg-white/[0.04] hover:border-white/10 hover:shadow-[0_8px_32px_rgba(0,0,0,0.2)]"
                                     >
-                                        {/* Overlay for depth on hover */}
-                                        <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-
                                         {/* Floating Badge Icon */}
                                         <div
-                                            className="absolute -top-10 left-1/2 -translate-x-1/2 w-20 h-20 rounded-full bg-white text-purple-600 shadow-2xl flex items-center justify-center text-4xl border-4 border-white z-20 group-hover:scale-110 transition-transform duration-300"
-                                            style={{
-                                                boxShadow: '0 10px 40px rgba(0,0,0,0.3)'
-                                            }}
+                                            className="absolute -top-10 left-1/2 -translate-x-1/2 w-20 h-20 rounded-2xl bg-[#030014] border border-white/10 flex items-center justify-center text-4xl shadow-xl group-hover:scale-110 group-hover:shadow-[0_0_30px_rgba(124,58,237,0.3)] transition-all duration-300"
                                         >
-                                            {getIcon(step.icon)}
+                                            <div className="relative z-10">
+                                                {getIcon(step.icon)}
+                                            </div>
+                                            {/* Glow effect behind icon */}
+                                            <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-violet-500/20 to-fuchsia-500/20 blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                                         </div>
 
                                         {/* Giant Background Number */}
-                                        <div className="absolute right-6 bottom-0 text-8xl font-black text-white/20 opacity-100 z-0 scale-110 group-hover:scale-100 transition-transform duration-500 origin-bottom-right select-none tracking-widest">
+                                        <div className="absolute right-4 bottom-2 text-8xl font-black text-white/[0.03] opacity-100 z-0 select-none tracking-widest group-hover:text-white/[0.05] transition-colors">
                                             {step.number}
                                         </div>
 
-                                        <div className="relative z-10">
-                                            <h3 className="text-lg font-bold text-white mb-3 drop-shadow-lg">
+                                        <div className="relative z-10 w-full">
+                                            <h3 className="text-xl font-bold text-white mb-4 group-hover:text-purple-200 transition-colors">
                                                 {step.title}
                                             </h3>
-                                            <p className="text-sm text-white/95 leading-relaxed font-medium drop-shadow">
+                                            <p className="text-sm text-slate-400 leading-relaxed font-medium">
                                                 {step.description}
                                             </p>
                                         </div>
                                     </div>
-
-                                    {/* Keyframes for gradient animation */}
-                                    <style jsx>{`
-                                        @keyframes gradientShift {
-                                            0% { background-position: 0% 50%; }
-                                            50% { background-position: 100% 50%; }
-                                            100% { background-position: 0% 50%; }
-                                        }
-                                    `}</style>
                                 </motion.div>
                             ))}
                         </div>
@@ -105,9 +89,9 @@ export default function ProcessTimeline() {
                 <div className="lg:hidden">
                     <div className="relative">
                         {/* Vertical Line */}
-                        <div className="absolute left-8 top-0 bottom-0 w-1 bg-gradient-to-b from-purple-light to-pink-500" />
+                        <div className="absolute left-8 top-0 bottom-0 w-[2px] bg-gradient-to-b from-purple-500/20 via-pink-500/20 to-transparent" />
 
-                        <div className="flex flex-col gap-16">
+                        <div className="flex flex-col gap-12">
                             {PROCESS_STEPS.map((step, index) => (
                                 <motion.div
                                     key={index}
@@ -118,22 +102,23 @@ export default function ProcessTimeline() {
                                     className="relative flex items-start gap-6"
                                 >
                                     {/* Circle Node */}
-                                    <div className="flex-shrink-0 w-16 h-16 rounded-full flex items-center justify-center bg-black border-2 border-white z-10 shadow-xl">
+                                    <div className="flex-shrink-0 w-16 h-16 rounded-2xl flex items-center justify-center bg-[#0a0a0a] border border-white/10 z-10 shadow-lg relative group overflow-hidden">
+                                        <div className="absolute inset-0 bg-gradient-to-br from-violet-500/10 to-transparent opacity-50" />
                                         {getIcon(step.icon)}
                                     </div>
 
                                     {/* Content */}
-                                    {/* Content (Mobile - Content Only) */}
-                                    <div className="flex-grow pl-4 py-8 relative overflow-hidden rounded-2xl min-h-[140px] flex flex-col justify-center">
-                                        {/* Giant Background Number - Lighter for Dark BG */}
-                                        <div className="absolute right-0 bottom-0 text-7xl font-black text-purple-300 opacity-20 z-0 select-none tracking-widest">
+                                    <div className="flex-grow p-6 relative overflow-hidden rounded-2xl border border-white/5 bg-white/[0.02] backdrop-blur-sm">
+                                        {/* Giant Background Number */}
+                                        <div className="absolute right-4 bottom-2 text-6xl font-black text-white/[0.03] z-0 select-none tracking-widest">
                                             {step.number}
                                         </div>
+
                                         <div className="relative z-10">
-                                            <h3 className="text-xl font-bold text-white mb-2">
+                                            <h3 className="text-lg font-bold text-white mb-2">
                                                 {step.title}
                                             </h3>
-                                            <p className="text-purple-100 leading-relaxed text-sm">
+                                            <p className="text-slate-400 leading-relaxed text-sm">
                                                 {step.description}
                                             </p>
                                         </div>
