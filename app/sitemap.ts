@@ -21,6 +21,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     const demos = [
         '/demos/salon-beauty',
         '/demos/mechanik',
+        '/demos/nieruchomosci',
+        '/demos/fotograf',
     ].map((route) => ({
         url: `${baseUrl}${route}`,
         lastModified: new Date(),

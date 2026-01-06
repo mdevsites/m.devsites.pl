@@ -7,6 +7,12 @@ import { ArrowRightIcon } from '@heroicons/react/24/outline';
 import { useSearchParams } from 'next/navigation';
 import dynamic from 'next/dynamic';
 import FAQSection from '@/components/pricing/FAQSection';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+    title: "Kontakt | Zamów Stronę Internetową | M.DEV",
+    description: "Skontaktuj się w sprawie nowej strony www. Bezpłatna wycena i konsultacja. Formularz kontaktowy, telefon i email.",
+};
 
 const AuroraBackground = dynamic(() => import('@/components/ui/AuroraBackground'), {
     ssr: false,

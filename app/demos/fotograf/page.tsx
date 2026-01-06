@@ -72,7 +72,7 @@ export default function PhotographerPage() {
                                 { src: "https://images.unsplash.com/photo-1519657337289-077653f724ed?w=800&q=80", aspect: "aspect-[3/4]" },
                             ].map((item, index) => (
                                 <div key={`col1-${index}`} className={`relative overflow-hidden group w-full ${item.aspect} bg-gray-100 shadow-sm hover:shadow-md transition-shadow`}>
-                                    <img src={item.src} alt="Portfolio" className="w-full h-full object-cover grayscale transition-all duration-500 group-hover:grayscale-0 group-hover:scale-105" loading="lazy" />
+                                    <Image src={item.src} alt="Fotografia Artystyczna i Ślubna" fill sizes="(max-width: 768px) 100vw, 33vw" className="object-cover grayscale transition-all duration-500 group-hover:grayscale-0 group-hover:scale-105" />
                                     <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300" />
                                 </div>
                             ))}
@@ -87,7 +87,7 @@ export default function PhotographerPage() {
                                 { src: "https://images.unsplash.com/photo-1500917293891-ef795e70e1f6?w=800&q=80", aspect: "aspect-[4/3]" },
                             ].map((item, index) => (
                                 <div key={`col2-${index}`} className={`relative overflow-hidden group w-full ${item.aspect} bg-gray-100 shadow-sm hover:shadow-md transition-shadow`}>
-                                    <img src={item.src} alt="Portfolio" className="w-full h-full object-cover grayscale transition-all duration-500 group-hover:grayscale-0 group-hover:scale-105" loading="lazy" />
+                                    <Image src={item.src} alt="Fotografia Artystyczna i Ślubna" fill sizes="(max-width: 768px) 100vw, 33vw" className="object-cover grayscale transition-all duration-500 group-hover:grayscale-0 group-hover:scale-105" />
                                     <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300" />
                                 </div>
                             ))}
@@ -102,7 +102,7 @@ export default function PhotographerPage() {
                                 { src: "https://images.unsplash.com/photo-1523438885200-e635ba2c371e?w=800&q=80", aspect: "aspect-[3/4]" },
                             ].map((item, index) => (
                                 <div key={`col3-${index}`} className={`relative overflow-hidden group w-full ${item.aspect} bg-gray-100 shadow-sm hover:shadow-md transition-shadow`}>
-                                    <img src={item.src} alt="Portfolio" className="w-full h-full object-cover grayscale transition-all duration-500 group-hover:grayscale-0 group-hover:scale-105" loading="lazy" />
+                                    <Image src={item.src} alt="Fotografia Artystyczna i Ślubna" fill sizes="(max-width: 768px) 100vw, 33vw" className="object-cover grayscale transition-all duration-500 group-hover:grayscale-0 group-hover:scale-105" />
                                     <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300" />
                                 </div>
                             ))}

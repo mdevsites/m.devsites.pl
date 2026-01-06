@@ -60,9 +60,9 @@ export default function MechanikPage() {
 
                 {/* Content - Vertical Center on Desktop/Mobile */}
                 <div className="relative z-10 text-center text-white px-6 max-w-4xl mx-auto">
-                    <h2 className="text-lg md:text-[48px] font-bold mb-4 md:mb-6 leading-tight">
+                    <h1 className="text-lg md:text-[48px] font-bold mb-4 md:mb-6 leading-tight">
                         Profesjonalny Serwis Samochodowy
-                    </h2>
+                    </h1>
                     <p className="text-base md:text-xl text-gray-200 mb-6 md:mb-12">
                         Doświadczenie, jakość i rzetelność od 1995 roku
                     </p>
