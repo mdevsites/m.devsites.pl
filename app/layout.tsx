@@ -42,9 +42,9 @@ export const metadata: Metadata = {
     "developer"
   ],
   icons: {
-    icon: '/icon',
-    shortcut: '/icon',
-    apple: '/icon',
+    icon: '/icon.png',
+    shortcut: '/icon.png',
+    apple: '/icon.png',
   },
   authors: [{ name: "M.DEV" }],
   creator: "M.DEV",
