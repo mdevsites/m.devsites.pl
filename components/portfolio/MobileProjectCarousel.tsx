@@ -14,7 +14,7 @@ export default function MobileProjectCarousel({ onOpenProject }: MobileProjectCa
         <div className="w-full min-h-[80vh] flex flex-col justify-center py-10 pb-24">
 
             {/* Header for Mobile context */}
-            {/* Header for Mobile context */}
+            <div className="h-8 w-full" />
             <div className="px-6 mb-8">
                 <p className="text-gray-400 text-sm uppercase tracking-wider font-medium flex items-center gap-2">
                     <span className="w-1.5 h-1.5 rounded-full bg-purple-500" />
@@ -22,12 +22,18 @@ export default function MobileProjectCarousel({ onOpenProject }: MobileProjectCa
                 </p>
             </div>
 
+            {/* Explicit Spacer */}
+            <div className="h-8 w-full" />
+
             {/* Carousel Container */}
-            <div className="w-full overflow-x-auto snap-x snap-mandatory flex items-stretch gap-6 px-6 pb-12 no-scrollbar">
+            <div className="w-full overflow-x-auto snap-x snap-mandatory flex items-stretch gap-6 px-0 pb-12 no-scrollbar">
+                {/* Start Spacer */}
+                <div className="w-6 shrink-0" />
+
                 {PORTFOLIO_PROJECTS.map((project, index) => (
                     <div
                         key={project.id}
-                        className="snap-center shrink-0 w-[85vw] sm:w-[600px] min-h-[60vh] relative rounded-3xl overflow-hidden border border-white/10 bg-[#0A0A0A] flex flex-col"
+                        className="snap-center shrink-0 w-[90vw] sm:w-[600px] min-h-[60vh] relative rounded-3xl overflow-hidden border border-white/10 bg-[#0A0A0A] flex flex-col"
                     >
                         {/* Image Section - Natural Height */}
                         <div className="relative w-full">
@@ -44,35 +50,38 @@ export default function MobileProjectCarousel({ onOpenProject }: MobileProjectCa
                         </div>
 
                         {/* Content Section - Below Image */}
-                        <div className="p-6 pt-2 pb-28 flex flex-col gap-4 flex-1 relative">
+                        <div className="pt-6 pb-8 flex-1 relative flex">
 
-                            {/* Header */}
-                            <div>
-                                <h3 className="text-2xl font-bold text-white leading-tight">
-                                    {project.title}
-                                </h3>
-                            </div>
+                            {/* Left Spacer */}
+                            <div className="w-4 shrink-0" />
 
-                            <p className="text-gray-400 text-sm line-clamp-3">
-                                {project.shortDescription}
-                            </p>
-
-                            {/* Minimal Button */}
-                            <button
-                                onClick={() => onOpenProject(project)}
-                                className="absolute bottom-6 left-6 right-6 rounded-xl bg-black/40 border border-white/30 backdrop-blur-md text-white font-bold text-sm tracking-wide flex flex-col items-center justify-center transition-all active:scale-95 active:bg-white active:text-black overflow-hidden"
-                            >
-                                {/* Top Spacer */}
-                                <div className="h-1.5 w-full" />
-
-                                <div className="flex items-center gap-2">
-                                    <Play className="w-3.5 h-3.5 fill-current" />
-                                    <span>Zobacz Live Demo</span>
+                            <div className="flex-1 flex flex-col gap-4">
+                                {/* Header */}
+                                <div>
+                                    <h3 className="text-3xl font-bold text-white leading-tight">
+                                        {project.title}
+                                    </h3>
                                 </div>
 
-                                {/* Bottom Spacer */}
-                                <div className="h-1.5 w-full" />
-                            </button>
+                                <p className="text-gray-400 text-base line-clamp-3 leading-relaxed">
+                                    {project.shortDescription}
+                                </p>
+
+                                {/* Spacer between content and button */}
+                                <div className="h-4" />
+
+                                {/* Premium Large Button */}
+                                <button
+                                    onClick={() => onOpenProject(project)}
+                                    className="mt-auto w-full h-24 rounded-xl border border-white/30 text-white font-bold text-sm uppercase tracking-[0.2em] flex items-center justify-center gap-3 transition-all hover:bg-white hover:text-black hover:border-transparent active:scale-95"
+                                >
+                                    <span>ZOBACZ PROJEKT</span>
+                                    <Play className="w-4 h-4 fill-current" />
+                                </button>
+                            </div>
+
+                            {/* Right Spacer */}
+                            <div className="w-4 shrink-0" />
                         </div>
                     </div>
                 ))}

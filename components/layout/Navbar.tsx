@@ -46,10 +46,10 @@ export default function Navbar() {
     if (hideNav) return null;
 
     return (
-        <nav className={`fixed top-6 left-0 right-0 z-50 flex justify-end md:justify-center px-4 transition-all duration-300 ${isScrolled ? 'top-4' : 'top-6'}`}>
+        <nav className={`fixed top-6 left-0 right-0 z-[100] flex justify-end md:justify-center px-4 transition-all duration-300 ${isScrolled ? 'top-4' : 'top-6'}`}>
             <div
                 style={{ paddingInline: 'var(--spacing-md)', paddingBlock: 'var(--spacing-xs)', gap: 'var(--spacing-md)' }}
-                className={`relative z-50 flex items-center bg-white/[0.02] backdrop-blur-3xl border border-white/10 rounded-[2.5rem] shadow-[0_8px_32px_0_rgba(0,0,0,0.37)] transition-all duration-300 ${isScrolled ? 'scale-95 bg-white/[0.05]' : 'scale-100'}`}
+                className={`relative z-[110] flex items-center bg-white/[0.02] backdrop-blur-3xl border border-white/10 rounded-[2.5rem] shadow-[0_8px_32px_0_rgba(0,0,0,0.37)] transition-all duration-300 ${isScrolled ? 'scale-95 bg-white/[0.05]' : 'scale-100'}`}
             >
 
                 {/* Desktop Navigation - ICON DOCK STYLE */}
@@ -96,6 +96,9 @@ export default function Navbar() {
                 </button>
             </div>
 
+            {/* External Spacer to push pill from edge */}
+            <div className="w-2 md:hidden" />
+
             {/* Mobile Menu Dropdown */}
 
             <AnimatePresence>
@@ -105,7 +108,7 @@ export default function Navbar() {
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
                         transition={{ duration: 0.3 }}
-                        className="fixed inset-0 z-40 bg-black/95 backdrop-blur-xl flex flex-col justify-center items-center md:hidden"
+                        className="fixed inset-0 z-[100] bg-black/95 backdrop-blur-xl flex flex-col justify-center items-center md:hidden"
                     >
                         {/* Menu Items */}
                         <div className="flex flex-col items-center gap-8 z-50">
@@ -150,9 +153,7 @@ export default function Navbar() {
                                 <a href={SOCIAL_LINKS.linkedin} target="_blank" rel="noopener noreferrer" className="text-white/60 hover:text-white transition-colors">
                                     <Linkedin className="w-8 h-8" />
                                 </a>
-                                <a href={SOCIAL_LINKS.instagram} target="_blank" rel="noopener noreferrer" className="text-white/60 hover:text-white transition-colors">
-                                    <Instagram className="w-8 h-8" />
-                                </a>
+
                                 <a href={SOCIAL_LINKS.facebook} target="_blank" rel="noopener noreferrer" className="text-white/60 hover:text-white transition-colors">
                                     <Facebook className="w-8 h-8" />
                                 </a>

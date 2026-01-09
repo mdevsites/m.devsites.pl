@@ -144,11 +144,17 @@ export default function Hero() {
                             >
                                 <Link
                                     href="/portfolio"
-                                    className="group inline-flex items-center gap-3 px-8 py-4 rounded-full text-white font-medium text-lg transition-all duration-300 hover:bg-white/5 relative z-20"
+                                    className="inline-flex flex-col items-center justify-center rounded-full border border-white/20 hover:border-white/40 bg-white/5 hover:bg-white/10 backdrop-blur-sm transition-all duration-300 group"
                                 >
-
-                                    <span>Zobacz Projekty</span>
-                                    <ArrowRightIcon className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                                    <div className="h-5" />
+                                    <div className="flex items-center">
+                                        <div className="w-12" />
+                                        <span className="text-white text-sm md:text-base font-medium tracking-widest uppercase">Zobacz Projekty</span>
+                                        <div className="w-4" />
+                                        <ArrowRightIcon className="w-5 h-5 text-white/70 group-hover:text-white group-hover:translate-x-1 transition-all" />
+                                        <div className="w-12" />
+                                    </div>
+                                    <div className="h-5" />
                                 </Link>
                             </motion.div>
 

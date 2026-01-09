@@ -169,7 +169,7 @@ export default function Testimonials() {
                     {/* Navigation Arrows */}
                     <button
                         onClick={goToPrevious}
-                        className="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 z-30 hover:scale-110 transition-transform duration-300"
+                        className="absolute -left-5 md:left-8 top-1/2 -translate-y-1/2 z-30 hover:scale-110 transition-transform duration-300"
                         aria-label="Previous testimonial"
                     >
                         <ChevronLeftIcon className="w-12 h-12 text-white drop-shadow-lg" />
@@ -177,7 +177,7 @@ export default function Testimonials() {
 
                     <button
                         onClick={goToNext}
-                        className="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 z-30 hover:scale-110 transition-transform duration-300"
+                        className="absolute -right-5 md:right-8 top-1/2 -translate-y-1/2 z-30 hover:scale-110 transition-transform duration-300"
                         aria-label="Next testimonial"
                     >
                         <ChevronRightIcon className="w-12 h-12 text-white drop-shadow-lg" />

@@ -34,65 +34,74 @@ export default function FAQSection() {
     const [openIndex, setOpenIndex] = useState<number | null>(null);
 
     return (
-        <section className="w-full max-w-4xl mx-auto px-4 pb-32">
-            <div className="text-center mb-0">
-                <h2 className="text-3xl md:text-5xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-400">
-                    Często zadawane pytania
-                </h2>
-                <p className="text-gray-400 text-lg">
-                    Wszystko, co musisz wiedzieć przed rozpoczęciem współpracy
-                </p>
-            </div>
+        <section className="w-full max-w-4xl mx-auto pb-32 flex">
 
-            <div style={{ height: '80px' }} className="w-full shrink-0" />
+            {/* Left Spacer */}
+            <div className="w-8 shrink-0" />
 
-            <div className="space-y-0 divide-y divide-white/5 border-t border-b border-white/5">
-                {FAQS.map((faq, index) => (
-                    <div
-                        key={index}
-                        className="group bg-transparent transition-all duration-300"
-                    >
-                        {/* Top Spacer */}
-                        <div className="h-2 w-full" />
+            <div className="flex-1 w-full min-w-0">
+                <div className="text-center mb-0">
+                    <h2 className="text-3xl md:text-5xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-400">
+                        Często zadawane pytania
+                    </h2>
+                    <p className="text-gray-400 text-lg">
+                        Wszystko, co musisz wiedzieć przed rozpoczęciem współpracy
+                    </p>
+                </div>
 
-                        <button
-                            onClick={() => setOpenIndex(openIndex === index ? null : index)}
-                            className="w-full flex items-center justify-between py-4 text-left outline-none hover:bg-white/[0.02] transition-colors"
-                        >
-                            <span className={`text-xl md:text-2xl font-medium transition-colors duration-300 ${openIndex === index ? 'text-white' : 'text-gray-400 group-hover:text-white'}`}>
-                                {faq.question}
-                            </span>
-                            <span className={`
-                                ml-4 p-2 rounded-full border border-white/10 text-gray-400 transition-all duration-300
-                                ${openIndex === index ? 'bg-white text-black rotate-180 border-white' : 'group-hover:text-white group-hover:border-white/30'}
-                            `}>
-                                {openIndex === index ? (
-                                    <MinusIcon className="w-6 h-6" />
-                                ) : (
-                                    <PlusIcon className="w-6 h-6" />
-                                )}
-                            </span>
-                        </button>
+                <div style={{ height: '80px' }} className="w-full shrink-0" />
 
+                <div className="space-y-0 divide-y divide-white/5 border-t border-b border-white/5">
+                    {FAQS.map((faq, index) => (
                         <div
-                            className={`
-                                overflow-hidden transition-all duration-500 ease-in-out
-                                ${openIndex === index ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'}
-                            `}
+                            key={index}
+                            className="group bg-transparent transition-all duration-300"
                         >
-                            {/* Inner Spacer between Question and Answer */}
-                            <div className="h-6 w-full" />
+                            {/* Top Spacer */}
+                            <div className="h-2 w-full" />
 
-                            <div className="pb-4 pt-0 text-gray-400 leading-relaxed text-lg md:text-xl w-full">
-                                {faq.answer}
+                            <button
+                                onClick={() => setOpenIndex(openIndex === index ? null : index)}
+                                className="w-full flex items-center justify-between py-4 text-left outline-none hover:bg-white/[0.02] transition-colors"
+                            >
+                                <span className={`text-xl md:text-2xl font-medium transition-colors duration-300 ${openIndex === index ? 'text-white' : 'text-gray-400 group-hover:text-white'}`}>
+                                    {faq.question}
+                                </span>
+                                <span className={`
+                                    ml-4 p-2 rounded-full border border-white/10 text-gray-400 transition-all duration-300
+                                    ${openIndex === index ? 'bg-white text-black rotate-180 border-white' : 'group-hover:text-white group-hover:border-white/30'}
+                                `}>
+                                    {openIndex === index ? (
+                                        <MinusIcon className="w-6 h-6" />
+                                    ) : (
+                                        <PlusIcon className="w-6 h-6" />
+                                    )}
+                                </span>
+                            </button>
+
+                            <div
+                                className={`
+                                    overflow-hidden transition-all duration-500 ease-in-out
+                                    ${openIndex === index ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'}
+                                `}
+                            >
+                                {/* Inner Spacer between Question and Answer */}
+                                <div className="h-6 w-full" />
+
+                                <div className="pb-4 pt-0 text-gray-400 leading-relaxed text-lg md:text-xl w-full">
+                                    {faq.answer}
+                                </div>
                             </div>
-                        </div>
 
-                        {/* Bottom Spacer */}
-                        <div className="h-2 w-full" />
-                    </div>
-                ))}
+                            {/* Bottom Spacer */}
+                            <div className="h-2 w-full" />
+                        </div>
+                    ))}
+                </div>
             </div>
+
+            {/* Right Spacer */}
+            <div className="w-8 shrink-0" />
         </section>
     );
 }

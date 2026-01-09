@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { EnvelopeIcon, PhoneIcon } from '@heroicons/react/24/outline';
+import { EnvelopeIcon, PhoneIcon, ArrowRightIcon } from '@heroicons/react/24/outline';
 import { FaWhatsapp } from 'react-icons/fa';
 
 export default function ContactSection() {
@@ -103,12 +103,20 @@ export default function ContactSection() {
                 >
                     <Link
                         href="/contact"
-                        className="inline-block px-8 py-4 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-500 hover:to-pink-500 text-white font-semibold rounded-xl transition-all duration-300 shadow-lg hover:shadow-purple-500/25 hover:scale-105"
+                        className="inline-flex flex-col items-center justify-center rounded-full border border-white/20 hover:border-white/40 bg-white/5 hover:bg-white/10 backdrop-blur-sm transition-all duration-300 group"
                     >
-                        Formularz kontaktowy
+                        <div className="h-5" />
+                        <div className="flex items-center">
+                            <div className="w-12" />
+                            <span className="text-white text-sm md:text-base font-medium tracking-widest uppercase">Formularz kontaktowy</span>
+                            <div className="w-4" />
+                            <ArrowRightIcon className="w-5 h-5 text-white/70 group-hover:text-white group-hover:translate-x-1 transition-all" />
+                            <div className="w-12" />
+                        </div>
+                        <div className="h-5" />
                     </Link>
                 </motion.div>
             </div>
-        </section>
+        </section >
     );
 }

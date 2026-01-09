@@ -8,6 +8,7 @@ export default function Footer() {
     return (
         <footer className="bg-black border-t border-white/10">
             <div className="container-custom py-6">
+                <div className="h-8" />
                 <div className="flex flex-col md:flex-row items-center justify-center gap-6">
                     {/* Copyright & Links */}
                     <div className="flex flex-col md:flex-row items-center gap-4 text-sm text-gray-medium">
@@ -49,6 +50,7 @@ export default function Footer() {
                         </a>
                     </div>
                 </div>
+                <div className="h-8" />
             </div>
         </footer>
     );
