@@ -58,14 +58,6 @@ export const metadata: Metadata = {
     siteName: "M.DEV",
     title: "M.DEV - Tworzenie Profesjonalnych Stron Internetowych",
     description: "Tworzę nowoczesne strony internetowe dla firm. Responsywny design, szybka realizacja, konkurencyjne ceny.",
-    images: [
-      {
-        url: "/opengraph-image",
-        width: 1200,
-        height: 630,
-        alt: "M.DEV - Profesjonalne Tworzenie Stron Internetowych",
-      }
-    ],
   },
 
   // Twitter Card
@@ -73,7 +65,6 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "M.DEV - Tworzenie Stron Internetowych",
     description: "Tworzę nowoczesne strony internetowe dla firm. Responsywny design, szybka realizacja, konkurencyjne ceny.",
-    images: ["/opengraph-image"],
   },
 
   // Dodatkowe meta tagi
