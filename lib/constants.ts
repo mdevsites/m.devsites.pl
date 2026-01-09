@@ -17,7 +17,7 @@ export const CONTACT_INFO = {
 
 // Social Media Links (Placeholders)
 export const SOCIAL_LINKS = {
-  facebook: 'https://facebook.com',
+  facebook: 'https://www.facebook.com/profile.php?id=61585946020793',
   instagram: 'https://instagram.com',
   linkedin: 'https://www.linkedin.com/in/marcin-chrąchol-5a9a7b21b',
   github: 'https://github.com/mdevsites',

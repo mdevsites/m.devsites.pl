@@ -5,7 +5,8 @@ import { usePathname, useSearchParams } from 'next/navigation';
 import { useState, useEffect } from 'react';
 import { Bars3Icon, XMarkIcon, HomeIcon, ViewColumnsIcon, CurrencyDollarIcon, EnvelopeIcon } from '@heroicons/react/24/outline';
 import { AnimatePresence, motion } from 'framer-motion';
-import { NAV_LINKS } from '@/lib/constants';
+import { Facebook, Github, Instagram, Linkedin } from 'lucide-react';
+import { NAV_LINKS, SOCIAL_LINKS } from '@/lib/constants';
 import { HamburgerIcon } from '../ui/HamburgerIcon';
 
 export default function Navbar() {
@@ -24,6 +25,14 @@ export default function Navbar() {
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
+    useEffect(() => {
+        if (isMobileMenuOpen) {
+            document.body.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = 'unset';
+        }
+    }, [isMobileMenuOpen]);
+
     const getIconForLink = (path: string) => {
         switch (path) {
             case '/': return HomeIcon;
@@ -40,7 +49,7 @@ export default function Navbar() {
         <nav className={`fixed top-6 left-0 right-0 z-50 flex justify-end md:justify-center px-4 transition-all duration-300 ${isScrolled ? 'top-4' : 'top-6'}`}>
             <div
                 style={{ paddingInline: 'var(--spacing-md)', paddingBlock: 'var(--spacing-xs)', gap: 'var(--spacing-md)' }}
-                className={`flex items-center bg-white/[0.02] backdrop-blur-3xl border border-white/10 rounded-[2.5rem] shadow-[0_8px_32px_0_rgba(0,0,0,0.37)] transition-all duration-300 ${isScrolled ? 'scale-95 bg-white/[0.05]' : 'scale-100'}`}
+                className={`relative z-50 flex items-center bg-white/[0.02] backdrop-blur-3xl border border-white/10 rounded-[2.5rem] shadow-[0_8px_32px_0_rgba(0,0,0,0.37)] transition-all duration-300 ${isScrolled ? 'scale-95 bg-white/[0.05]' : 'scale-100'}`}
             >
 
                 {/* Desktop Navigation - ICON DOCK STYLE */}
@@ -54,8 +63,8 @@ export default function Navbar() {
                                 href={link.href}
                                 style={{ paddingInline: 'var(--spacing-sm)', paddingBlock: 'var(--spacing-xs)', gap: 'var(--spacing-xs)' }}
                                 className={`group relative flex flex-col items-center justify-center rounded-2xl min-w-[90px] transition-all duration-300 hover:-translate-y-1 ${isActive
-                                        ? 'text-white'
-                                        : 'text-white/70 hover:text-white hover:bg-white/5'
+                                    ? 'text-white'
+                                    : 'text-white/70 hover:text-white hover:bg-white/5'
                                     }`}
                             >
                                 {/* Animated Background Indicator */}
@@ -92,45 +101,63 @@ export default function Navbar() {
             <AnimatePresence>
                 {isMobileMenuOpen && (
                     <motion.div
-                        initial={{ opacity: 0, y: -20, scale: 0.95 }}
-                        animate={{ opacity: 1, y: 0, scale: 1 }}
-                        exit={{ opacity: 0, y: -20, scale: 0.95 }}
-                        transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
-                        className="absolute top-24 left-4 right-4 bg-white/[0.02] backdrop-blur-3xl border border-white/10 rounded-[2.5rem] p-8 md:hidden flex justify-center shadow-[0_8px_32px_0_rgba(0,0,0,0.37)] overflow-hidden"
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        transition={{ duration: 0.3 }}
+                        className="fixed inset-0 z-40 bg-black/95 backdrop-blur-xl flex flex-col justify-center items-center md:hidden"
                     >
-                        <div className="flex flex-col items-center gap-6">
+                        {/* Menu Items */}
+                        <div className="flex flex-col items-center gap-8 z-50">
                             {NAV_LINKS.map((link, index) => {
                                 const isActive = pathname === link.href;
-
                                 return (
                                     <motion.div
                                         key={link.href}
-                                        initial={{ opacity: 0, y: 20 }}
+                                        initial={{ opacity: 0, y: 40 }}
                                         animate={{ opacity: 1, y: 0 }}
-                                        transition={{ delay: index * 0.1, duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+                                        exit={{ opacity: 0, y: 20 }}
+                                        transition={{
+                                            delay: 0.1 + index * 0.1,
+                                            duration: 0.5,
+                                            ease: [0.22, 1, 0.36, 1]
+                                        }}
                                     >
                                         <Link
                                             href={link.href}
                                             onClick={() => setIsMobileMenuOpen(false)}
-                                            className="relative block group"
+                                            className={`relative text-5xl font-bold tracking-tight transition-colors duration-300 ${isActive ? 'text-white' : 'text-white/40 hover:text-white'
+                                                }`}
                                         >
-                                            <span className={`text-3xl font-bold tracking-tight transition-all duration-300 ${isActive
-                                                ? 'text-white'
-                                                : 'text-white/40 hover:text-white'
-                                                }`}>
-                                                {link.name}
-                                            </span>
-                                            {isActive && (
-                                                <motion.div
-                                                    layoutId="activeDot"
-                                                    className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-1.5 h-1.5 bg-white rounded-full"
-                                                />
-                                            )}
+                                            {link.name}
                                         </Link>
                                     </motion.div>
                                 );
                             })}
                         </div>
+
+                        {/* Social Links Footer */}
+                        <motion.div
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ delay: 0.5, duration: 0.5 }}
+                            className="absolute bottom-12 flex gap-8"
+                        >
+                            <div className="flex gap-6">
+                                <a href={SOCIAL_LINKS.github} target="_blank" rel="noopener noreferrer" className="text-white/60 hover:text-white transition-colors">
+                                    <Github className="w-8 h-8" />
+                                </a>
+                                <a href={SOCIAL_LINKS.linkedin} target="_blank" rel="noopener noreferrer" className="text-white/60 hover:text-white transition-colors">
+                                    <Linkedin className="w-8 h-8" />
+                                </a>
+                                <a href={SOCIAL_LINKS.instagram} target="_blank" rel="noopener noreferrer" className="text-white/60 hover:text-white transition-colors">
+                                    <Instagram className="w-8 h-8" />
+                                </a>
+                                <a href={SOCIAL_LINKS.facebook} target="_blank" rel="noopener noreferrer" className="text-white/60 hover:text-white transition-colors">
+                                    <Facebook className="w-8 h-8" />
+                                </a>
+                            </div>
+                        </motion.div>
                     </motion.div>
                 )}
             </AnimatePresence>
