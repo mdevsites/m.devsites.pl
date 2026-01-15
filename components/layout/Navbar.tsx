@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import { usePathname, useSearchParams } from 'next/navigation';
 import { useState, useEffect } from 'react';
-import { Bars3Icon, XMarkIcon, HomeIcon, ViewColumnsIcon, CurrencyDollarIcon, EnvelopeIcon } from '@heroicons/react/24/outline';
+import { Bars3Icon, XMarkIcon, HomeIcon, ViewColumnsIcon, CurrencyDollarIcon, EnvelopeIcon, BriefcaseIcon } from '@heroicons/react/24/outline';
 import { AnimatePresence, motion } from 'framer-motion';
 import { Facebook, Github, Instagram, Linkedin } from 'lucide-react';
 import { NAV_LINKS, SOCIAL_LINKS } from '@/lib/constants';
@@ -37,6 +37,7 @@ export default function Navbar() {
         switch (path) {
             case '/': return HomeIcon;
             case '/portfolio': return ViewColumnsIcon;
+            case '/oferta': return BriefcaseIcon;
             case '/pricing': return CurrencyDollarIcon;
             case '/contact': return EnvelopeIcon;
             default: return HomeIcon;
@@ -129,7 +130,7 @@ export default function Navbar() {
                                         <Link
                                             href={link.href}
                                             onClick={() => setIsMobileMenuOpen(false)}
-                                            className={`relative text-5xl font-bold tracking-tight transition-colors duration-300 ${isActive ? 'text-white' : 'text-white/40 hover:text-white'
+                                            className={`relative text-5xl font-bold tracking-tight uppercase transition-colors duration-300 ${isActive ? 'text-white' : 'text-white/40 hover:text-white'
                                                 }`}
                                         >
                                             {link.name}

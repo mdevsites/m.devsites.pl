@@ -26,6 +26,7 @@ export const SOCIAL_LINKS = {
 // Navigation Menu Items
 export const NAV_LINKS = [
   { name: 'Home', href: '/' },
+  { name: 'Jak pracuję', href: '/oferta' },
   { name: 'Portfolio', href: '/portfolio' },
   { name: 'Cennik', href: '/pricing' },
   { name: 'Kontakt', href: '/contact' },
