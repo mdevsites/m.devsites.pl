@@ -43,8 +43,8 @@ export const metadata: Metadata = {
   ],
   icons: {
     icon: '/icon.png',
-    shortcut: '/icon.png',
-    apple: '/icon.png',
+    shortcut: '/favicon.png',
+    apple: '/apple-icon.png',
   },
   authors: [{ name: "M.DEV" }],
   creator: "M.DEV",
